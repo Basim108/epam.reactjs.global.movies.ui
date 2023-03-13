@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
-    "test:ci": "react-scripts test --watchAll=false --browsers=ChromeHeadless",
+    "test:ci": "react-scripts test --coverage --watchAll=false --browsers=ChromeHeadless",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
