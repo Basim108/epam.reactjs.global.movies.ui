@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+### Definition
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+During the whole program you will be implementing a single page app (SPA), which will allow users to search, view, add and delete movies from the Movies DB database.
+Each module contains a small subset of requirements for implementing the app. At the end, once you finish all modules, you will get a fully working SPA.
 
-## Available Scripts
+### Process
 
-In the project directory, you can run:
+Therefore, it's recommended to create a single git repository that you will use during the program.
+You can use whatever platform to publish your code: GitHub, GitLab, Bitbucket or any other. Discuss with your mentor, which one is preferable.
+Repository can be private, just ensure that your mentor has access to it.
 
-### `npm start`
+During the program you will emulate project activities: create a new branch for every module, implement home task in the branch and then open a pull request (merge request) to the main branch.
+Your mentor will review your pull requests, leave necessary comments and eventually approve your pull requests. Once approved by mentor, a pull request can be merged.
+It's not recommended to start a new module before merging a pull request from the previous one. Otherwise you may encounter some git conflicts.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Design Prototype
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+There's a [Figma project with designs](https://www.figma.com/file/fKGjrOqR6nJe6LYJopGCZ8/CDP-Home-Task-%E2%80%93-React-v1). Anonymous users can view sample pages.
+It explains how the app should behave at the end of the program.
 
-### `npm test`
+At the top navbar there is a "Play" button that gets you into the clickable prototype.
+You can go through that prototype to see the concept in action.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you log in under any account (you can create your personal one for free), you will get access to inspect mode.
 
-### `npm run build`
+If it's not clear what part of functionality should be implemented in every module discuss this with your mentor.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It's not required to implement pixel-perfect design. You can implement it schematically.
+The program is not focused on teaching you HTML and CSS skills.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+At some point you will have to start integrating with the backend HTTP API.
+The backend is already implemented for you. To access it, follow these steps:
 
-### `npm run eject`
+1. Clone the source repository: https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS
+2. Run "npm install" to install all dependencies
+3. Run "npm start" to start the backend API server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The server will start at http://localhost:4000/.
+You can find the Swagger documentation at http://localhost:4000/api-docs.
