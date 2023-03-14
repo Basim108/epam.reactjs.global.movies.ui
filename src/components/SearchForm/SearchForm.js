@@ -1,23 +1,18 @@
-import React, {useCallback, useState} from 'react';
-import PropTypes                      from 'prop-types';
-import styles                         from './SearchForm.module.css';
+import {useState} from 'react';
+import PropTypes  from 'prop-types';
+import styles     from './SearchForm.module.css';
 
 const SearchForm = (props) => {
     const [query, setQuery] = useState(props.query)
-    const onQueryChange     = useCallback(e => setQuery(e.target.value),
-                                          [query])
-    const onSubmit          = useCallback(() => props.onSearch && props.onSearch(query),
-                                          [query])
-    const onInputKeyPress   = useCallback((e) => e.key === 'Enter' && props.onSearch && props.onSearch(query),
-                                          [query])
-    return <label className={styles.SearchForm} data-testid="SearchForm">
+    const onInputKeyPress   = (e) => e.key === 'Enter' && props.onSearch && props.onSearch(query)
+    return <label className={styles.SearchForm}>
         <input type="text"
                value={query}
                placeholder="What do you want to watch?"
-               onChange={onQueryChange}
+               onChange={e => setQuery(e.target.value)}
                onKeyDown={onInputKeyPress}
         />
-        <button onClick={onSubmit}>Search</button>
+        <button onClick={() => props.onSearch && props.onSearch(query)}>Search</button>
     </label>
 }
 
