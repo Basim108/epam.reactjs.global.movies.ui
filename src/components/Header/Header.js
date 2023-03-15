@@ -1,9 +1,7 @@
-import {useCallback} from 'react';
-import styles        from './Header.module.css';
-import SearchForm    from "../SearchForm/SearchForm";
+import styles     from './Header.module.css';
+import SearchForm from "../SearchForm/SearchForm";
 
 const Header = () => {
-    const onSearchHandler = useCallback(pattern => console.log('start searching for: ', pattern), [])
     return (
         <div className={styles.Header + ' row'}>
             <div className="container">
@@ -16,7 +14,7 @@ const Header = () => {
                 </div>
                 <div className="row justify-content-center m-5">
                     <div className="col">
-                        <SearchForm onSearch={onSearchHandler}/>
+                        <SearchForm onSearch={pattern => console.log('start searching for: ', pattern)}/>
                     </div>
                 </div>
             </div>

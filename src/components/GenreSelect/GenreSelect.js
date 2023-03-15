@@ -1,12 +1,10 @@
-import {useMemo, useRef, useState} from 'react';
-import PropTypes                   from 'prop-types';
-import styles                      from './GenreSelect.module.css';
+import {useRef, useState} from 'react';
+import PropTypes          from 'prop-types';
+import styles             from './GenreSelect.module.css';
 
-export const ALL_GENRE = 'All'
 
 const GenreSelect = (props) => {
-    let [activeGenre, setActiveGenre] = useState(props.activeGenre || ALL_GENRE)
-    const genreList                   = useMemo(() => [ALL_GENRE, ...props.genreList], [props.genreList])
+    const [activeGenre, setActiveGenre] = useState(props.activeGenre)
 
     const genresRef   = useRef(null);
     const getMap      = () => genresRef.current || (genresRef.current = new Map());
@@ -28,29 +26,27 @@ const GenreSelect = (props) => {
     return (
         <div className={styles.GenreSelect + ' row mt-2'}>
             <div className="col">
-                {genreList.map(genre => <span className={styles.genre + (genre === activeGenre
-                                                                         ? ' ' + styles.selectedGenre
-                                                                         : '')}
-                                              ref={el => el
-                                                         ? getMap().set(genre, el)
-                                                         : getMap().delete(genre)}
-                                              onClick={() => selectGenre(genre)}
-                                              key={genre}>{genre}</span>)}
+                {props.genreList.map(genre => {
+                    const genreClassName = styles.genre + (genre === activeGenre
+                                                           ? ' ' + styles.selectedGenre
+                                                           : '')
+                    const ref            = el => el
+                                                 ? getMap().set(genre, el)
+                                                 : getMap().delete(genre)
+                    return (<span className={genreClassName}
+                                  ref={ref}
+                                  onClick={() => selectGenre(genre)}
+                                  key={genre}>{genre}</span>)
+                })}
             </div>
         </div>
     )
 }
 
 GenreSelect.propTypes = {
-    genreList  : PropTypes.arrayOf(PropTypes.string),
-    activeGenre: PropTypes.string,
-    onSelect   : PropTypes.func
-};
-
-GenreSelect.defaultProps = {
-    genreList  : [],
-    activeGenre: ALL_GENRE,
-    onSelect   : undefined
+    genreList  : PropTypes.arrayOf(PropTypes.string).isRequired,
+    activeGenre: PropTypes.string.isRequired,
+    onSelect   : PropTypes.func.isRequired
 };
 
 export default GenreSelect;

@@ -5,7 +5,7 @@ import GenreSelect      from './GenreSelect';
 
 describe('<GenreSelect />', () => {
     test('it should mount', () => {
-        render(<GenreSelect/>);
+        render(<GenreSelect genreList={['All']}/>);
         // const genreSelect = screen.getByTestId('GenreSelect');
         // expect(genreSelect).toBeInTheDocument();
     });

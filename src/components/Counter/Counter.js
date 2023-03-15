@@ -10,32 +10,30 @@ export default class Counter extends Component {
         this.state.count = this.props.initialValue || 0
     }
 
-    render() {
-        return createElement('div', {style: counterStyle },
-            createElement('button', {style: buttonStyle, onClick:this.onIncreaseBtn.bind(this) }, '+'),
-            createElement('span', null, this.state.count),
-            createElement('button', {style: buttonStyle, onClick:this.onDecreaseBtn.bind(this) }, '-')
-        )
-    }
-
-    onIncreaseBtn(){
+    onIncreaseBtn() {
         this.setState({count: this.state.count + 1})
     }
-    onDecreaseBtn(){
+
+    onDecreaseBtn() {
         this.setState({count: this.state.count - 1})
     }
+    
+    render() {
+        return createElement('div', {style: counterStyle},
+                             createElement('button', {style: buttonStyle, onClick: this.onIncreaseBtn.bind(this)}, '+'),
+                             createElement('span', null, this.state.count),
+                             createElement('button', {style: buttonStyle, onClick: this.onDecreaseBtn.bind(this)}, '-')
+        )
+    }
 }
-Counter.propTypes = {};
-
-Counter.defaultProps = {};
 
 const counterStyle = {
-    margin: '5px',
+    margin   : '5px',
     textAlign: 'center',
-    display: 'block'
+    display  : 'block'
 }
-const buttonStyle = {
-    margin: '5px',
+const buttonStyle  = {
+    margin   : '5px',
     textAlign: 'center',
-    display: 'inline-block'
+    display  : 'inline-block'
 }

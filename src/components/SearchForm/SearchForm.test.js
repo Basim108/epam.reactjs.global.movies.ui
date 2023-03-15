@@ -5,7 +5,7 @@ import SearchForm       from './SearchForm';
 
 describe('<SearchForm />', () => {
     test('it should mount', () => {
-        render(<SearchForm/>);
+        render(<SearchForm onSearch={() => null}/>);
         // const searchForm = screen.getByTestId('SearchForm');
         // expect(searchForm).toBeInTheDocument();
     });
