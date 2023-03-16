@@ -1,0 +1,18 @@
+.GenreSelect {
+    background: #232323;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    width: 1200px;
+    padding-left: 15px;
+    border-bottom: 1px solid #424242;
+}
+
+.selectedGenre {
+    border-bottom: 2px solid #F65261 !important;
+}
+
+.genre {
+    cursor: pointer;
+    margin: 10px;
+    padding-bottom: 3px;
+}
