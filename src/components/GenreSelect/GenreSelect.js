@@ -32,6 +32,7 @@ const GenreSelect = (props) => {
                                    <span key={info.title}
                                          className={info.className}
                                          onClick={() => selectGenre(info.title)}
+                                         data-genre={info.title}
                                    > {info.title} </span>)}
             </div>
         </div>
