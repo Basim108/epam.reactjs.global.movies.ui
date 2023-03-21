@@ -2,37 +2,31 @@
 import Counter          from "./Counter";
 import {act}            from "react-dom/test-utils";
 import '@testing-library/jest-dom/extend-expect';
+import userEvent        from "@testing-library/user-event";
 
 describe('<Counter />', () => {
-    test('it should mount', () => {
-        render(<Counter initialValue={1}/>);
-        const counter = screen.getByTestId('Counter');
-        expect(counter).toBeInTheDocument();
+    
+    beforeEach(() => {
+        render(<Counter initialValue={5}/>);
+    })
+    
+    test('should render initial value', () => {
+        expect(screen.getByTestId('Counter')).toHaveTextContent('5');
     })
 
-    test('given initial value should render it', () => {
-        render(<Counter initialValue={5}/>);
-        const counter = screen.getByTestId('Counter');
-        expect(counter).toHaveTextContent('5');
+    test('should increment value after click on increase btn ', () => {
+        const increaseBtn = screen.getByRole('button', {name: '+'})
+
+        act(() => userEvent.click(increaseBtn))
+        
+        expect(screen.getByTestId('Counter')).toHaveTextContent('6');
     })
 
-    test('when click on increase btn should increment value', () => {
-        render(<Counter initialValue={5}/>);
-        const increaseBtn = screen.getByRole('button', {name: /\+/i})
-        act(() => {
-            increaseBtn.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-        });
-        const counter = screen.getByTestId('Counter');
-        expect(counter).toHaveTextContent('6');
-    })
+    test('should decrement value after click on decrease btn', () => {
+        const decreaseBtn = screen.getByRole('button', {name: '-'})
 
-    test('when click on decrease btn should decrement value', () => {
-        render(<Counter initialValue={5}/>);
-        const decreaseBtn = screen.getByRole('button', {name: /-/i})
-        act(() => {
-            decreaseBtn.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-        });
-        const counter = screen.getByTestId('Counter');
-        expect(counter).toHaveTextContent('4');
+        act(() => userEvent.click(decreaseBtn))
+        
+        expect(screen.getByTestId('Counter')).toHaveTextContent('4');
     })
 })

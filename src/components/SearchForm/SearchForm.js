@@ -4,13 +4,13 @@ import styles     from './SearchForm.module.css';
 
 const SearchForm = (props) => {
     const [query, setQuery] = useState(props.query)
-    const onInputKeyPress   = (e) => e.key === 'Enter' && props.onSearch(query)
+    const onInputKeyPress   = (e) => e.key === 'Enter' && query && props.onSearch(query)
     return (
         <label className={styles.SearchForm} data-testid="SearchForm">
             <input type="text"
                    value={query}
                    placeholder="What do you want to watch?"
-                   onChange={e => setQuery(e.target.value)}
+                   onChange={e => setQuery(e.target.value?.trim() ?? '')}
                    onKeyDown={onInputKeyPress}
             />
             <button onClick={() => props.onSearch(query)}>Search</button>

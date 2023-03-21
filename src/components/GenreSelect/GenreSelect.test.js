@@ -1,51 +1,46 @@
-import {fireEvent, render, screen} from '@testing-library/react';
-import GenreSelect                 from './GenreSelect';
-import {act}                       from "react-dom/test-utils";
+import {cleanup, render, screen} from '@testing-library/react';
+import GenreSelect               from './GenreSelect';
+import {act}            from "react-dom/test-utils";
 import '@testing-library/jest-dom/extend-expect';
+import userEvent        from "@testing-library/user-event";
 
 describe('<GenreSelect />', () => {
-    test('it should mount', () => {
-        render(<GenreSelect activeGenre="All" genreList={['All']} onSelect={() => null}/>);
-        const genreSelect = screen.getByTestId('GenreSelect');
-        expect(genreSelect).toBeInTheDocument();
+    afterEach(cleanup)
+    
+    test('should render all genre passed in props', () => {
+        render(<GenreSelect activeGenre="All" genreList={['All', 'Comedy']} onSelect={() => null}/>)
+        expect(screen.getByText('All')).toBeInTheDocument();
+        expect(screen.getByText('Comedy')).toBeInTheDocument();
     });
 
-    test('it should render all genre passed in props', () => {
-        render(<GenreSelect activeGenre="All" genreList={['All', 'Comedy']} onSelect={() => null}/>);
-        const allGenre = screen.getByText('All');
-        expect(allGenre).toBeInTheDocument();
-
-        const comedyGenre = screen.getByText('Comedy');
-        expect(comedyGenre).toBeInTheDocument();
-    });
-
-    test('given Comedy as activeGenre should make it active', () => {
-        render(<GenreSelect activeGenre="Comedy" genreList={['All', 'Comedy']} onSelect={() => null}/>);
-        const allGenre = screen.getByText('All');
+    test('should initially make active genre that comes in props.activeGenre', () => {
+        render(<GenreSelect activeGenre="Comedy" genreList={['All', 'Comedy']} onSelect={() => null}/>)
+        const allGenre = screen.getByText('All')
         expect(allGenre).toBeInTheDocument();
         expect(allGenre).not.toHaveClass('selectedGenre')
 
-        const comedyGenre = screen.getByText('Comedy');
+        const comedyGenre = screen.getByText('Comedy')
         expect(comedyGenre).toBeInTheDocument();
         expect(comedyGenre).toHaveClass('selectedGenre')
     });
 
-    test('when click on Comedy genre should make it active and call onSelect', () => {
-        const onSelect = jest.fn()
-        render(<GenreSelect activeGenre="All" genreList={['All', 'Comedy']} onSelect={onSelect}/>);
-        const allGenre = screen.getByText('All');
+    test('should make Comedy active and call onSelect after clicking on Comedy genre', () => {
+        const selectHandler = jest.fn()
+        render(<GenreSelect activeGenre="All" genreList={['All', 'Comedy']} onSelect={selectHandler}/>)
+        
+        const allGenre = screen.getByText('All')
         expect(allGenre).toBeInTheDocument();
         expect(allGenre).toHaveClass('selectedGenre')
 
-        const comedyGenre = screen.getByText('Comedy');
+        const comedyGenre = screen.getByText('Comedy')
         expect(comedyGenre).toBeInTheDocument();
         expect(comedyGenre).not.toHaveClass('selectedGenre')
 
-        act(() => fireEvent.click(comedyGenre))
+        act(() => userEvent.click(comedyGenre))
 
         expect(allGenre).not.toHaveClass('selectedGenre')
         expect(comedyGenre).toHaveClass('selectedGenre')
-        expect(onSelect).toHaveBeenCalledTimes(1)
-        expect(onSelect).toHaveBeenCalledWith('Comedy')
+        expect(selectHandler).toHaveBeenCalledTimes(1)
+        expect(selectHandler).toHaveBeenCalledWith('Comedy')
     });
 });
