@@ -24,7 +24,7 @@ describe('<GenreSelect />', () => {
         expect(comedyGenre).toHaveClass('selectedGenre')
     });
 
-    test('should make Comedy active and call onSelect after clicking on Comedy genre', () => {
+    test('should make Comedy active and call onSelect after clicking on Comedy genre', async () => {
         const selectHandler = jest.fn()
         render(<GenreSelect activeGenre="All" genreList={['All', 'Comedy']} onSelect={selectHandler}/>)
         
@@ -36,7 +36,7 @@ describe('<GenreSelect />', () => {
         expect(comedyGenre).toBeInTheDocument();
         expect(comedyGenre).not.toHaveClass('selectedGenre')
 
-        act(() => userEvent.click(comedyGenre))
+        await userEvent.click(comedyGenre)
 
         expect(allGenre).not.toHaveClass('selectedGenre')
         expect(comedyGenre).toHaveClass('selectedGenre')

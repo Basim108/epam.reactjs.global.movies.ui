@@ -14,19 +14,15 @@ describe('<Counter />', () => {
         expect(screen.getByTestId('Counter')).toHaveTextContent('5');
     })
 
-    test('should increment value after click on increase btn ', () => {
+    test('should increment value after click on increase btn ', async () => {
         const increaseBtn = screen.getByRole('button', {name: '+'})
-
-        act(() => userEvent.click(increaseBtn))
-        
+        await userEvent.click(increaseBtn)
         expect(screen.getByTestId('Counter')).toHaveTextContent('6');
     })
 
-    test('should decrement value after click on decrease btn', () => {
+    test('should decrement value after click on decrease btn', async () => {
         const decreaseBtn = screen.getByRole('button', {name: '-'})
-
-        act(() => userEvent.click(decreaseBtn))
-        
+        await userEvent.click(decreaseBtn)
         expect(screen.getByTestId('Counter')).toHaveTextContent('4');
     })
 })
