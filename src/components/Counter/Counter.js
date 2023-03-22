@@ -21,7 +21,7 @@ export default class Counter extends Component {
     render() {
         return createElement('div', {style: counterStyle},
                              createElement('button', {style: buttonStyle, onClick: this.onIncreaseBtn.bind(this)}, '+'),
-                             createElement('span', null, this.state.count),
+                             createElement('span', {"data-testid": "Counter"}, this.state.count),
                              createElement('button', {style: buttonStyle, onClick: this.onDecreaseBtn.bind(this)}, '-')
         )
     }

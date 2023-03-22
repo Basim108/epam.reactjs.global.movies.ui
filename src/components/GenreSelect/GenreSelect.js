@@ -25,19 +25,24 @@ const GenreSelect = (props) => {
         props.onSelect(genre)
     }
 
-    return (<div className={styles.GenreSelect + ' row mt-2'}>
-        <div className="col">
-            {genreList.map(info =>
-                               <span key={info.title}
-                                      className={info.className}
-                                      onClick={() => selectGenre(info.title)}
-                               > {info.title} </span>)}
+    return (
+        <div className={styles.GenreSelect + ' row mt-2'} data-testid="GenreSelect">
+            <div className="col">
+                {genreList.map(info =>
+                                   <span key={info.title}
+                                         className={info.className}
+                                         onClick={() => selectGenre(info.title)}
+                                         data-genre={info.title}
+                                   > {info.title} </span>)}
+            </div>
         </div>
-    </div>)
+    )
 }
 
 GenreSelect.propTypes = {
-    genreList: PropTypes.arrayOf(PropTypes.string).isRequired, activeGenre: PropTypes.string.isRequired, onSelect: PropTypes.func.isRequired
+    genreList  : PropTypes.arrayOf(PropTypes.string).isRequired,
+    activeGenre: PropTypes.string.isRequired,
+    onSelect   : PropTypes.func.isRequired
 };
 
 export default GenreSelect;

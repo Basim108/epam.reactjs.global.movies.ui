@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test:ci": "react-scripts test --coverage --watchAll=false --browsers=ChromeHeadless",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "wdio": "wdio run ./wdio.conf.js"
   },
   "eslintConfig": {
     "extends": [
@@ -38,5 +39,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@wdio/cli": "^8.6.5",
+    "@wdio/jasmine-framework": "^8.6.3",
+    "@wdio/local-runner": "^8.6.3",
+    "@wdio/spec-reporter": "^8.4.0",
+    "chromedriver": "^111.0.0",
+    "wdio-chromedriver-service": "^8.1.1"
   }
 }
