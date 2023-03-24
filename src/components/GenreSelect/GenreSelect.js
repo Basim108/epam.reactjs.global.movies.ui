@@ -7,8 +7,10 @@ const GenreSelect = (props) => {
     const buildClasses = (title, active) => styles.genre + (title === active
                                                             ? ' ' + styles.selectedGenre
                                                             : '')
-
-    const [activeGenre, setActiveGenre] = useState(props.activeGenre)
+    const initialGenreList = props.genreList.length 
+                             ? props.genreList
+                             : ['All']
+    const [activeGenre, setActiveGenre] = useState(props.activeGenre || initialGenreList[0])
     const [genreList, setGenreList]     = useState(props.genreList
                                                         .map(title => ({
                                                             title, className: buildClasses(title, activeGenre)
