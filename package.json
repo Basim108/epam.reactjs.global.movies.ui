@@ -5,8 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "test:ci": "react-scripts test --coverage --watchAll=false --browsers=ChromeHeadless",
+    "test": "react-scripts test --watchAll=false --silent",
+    "test:ci": "react-scripts test --coverage --watchAll=false --browsers=ChromeHeadless --silent",
     "eject": "react-scripts eject",
     "wdio": "wdio run ./wdio.conf.js",
     "sb": "start-storybook -p 6006 -s public",
@@ -41,6 +41,10 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.14",
     "material-ui-popup-state": "^5.0.8",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

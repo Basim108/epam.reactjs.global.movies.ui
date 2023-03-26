@@ -3,7 +3,8 @@ import CssBaseline                  from '@mui/material/CssBaseline';
 import styles                       from './App.module.css';
 import Header                       from "./components/Header/Header";
 import GenreSelect                  from "./components/GenreSelect/GenreSelect";
-import {Grid}                       from "@mui/material";
+import {Container, Grid}            from "@mui/material";
+import ToolBar                      from "./components/ToolBar/ToolBar";
 
 const darkTheme = createTheme({
                                   palette: {
@@ -16,12 +17,14 @@ function App() {
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline/>
-            <Grid className={styles.App + ' container'}>
+            <Container className={styles.App} fixed>
                 <Header/>
-                <GenreSelect genreList={['All', 'Comedy', 'Drama', 'Romance']}
-                             activeGenre="Comedy"
-                             onSelect={genre => console.log('genre was selected: ', genre)}/>
-            </Grid>
+                <ToolBar>
+                    <GenreSelect genreList={['All', 'Comedy', 'Drama', 'Romance']}
+                                 activeGenre="Comedy"
+                                 onSelect={genre => console.log('genre was selected: ', genre)}/>
+                </ToolBar>
+            </Container>
         </ThemeProvider>
     )
 }

@@ -3,6 +3,7 @@
     align-items: center;
     vertical-align: center;
     color: #FFFFFF;
+    margin-top: 15px;
 }
 
 .SearchForm > input {

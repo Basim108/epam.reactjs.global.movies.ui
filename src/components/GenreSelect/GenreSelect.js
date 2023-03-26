@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import PropTypes  from 'prop-types';
 import styles     from './GenreSelect.module.css';
+import {Grid}     from "@mui/material";
 
 
 const GenreSelect = (props) => {
@@ -9,9 +10,9 @@ const GenreSelect = (props) => {
                                                             : '')
 
     const initialGenreList = props.genreList.length
-                                 ? props.genreList
-                                 : ['All']
-    
+                             ? props.genreList
+                             : ['All']
+
     const [activeGenre, setActiveGenre] = useState(props.activeGenre || initialGenreList[0])
     const [genreList, setGenreList]     = useState(props.genreList
                                                         .map(title => ({
@@ -30,16 +31,16 @@ const GenreSelect = (props) => {
     }
 
     return (
-        <div className={styles.GenreSelect + ' row mt-2'} data-testid="GenreSelect">
-            <div className="col">
-                {genreList.map(info =>
-                                   <span key={info.title}
-                                         className={info.className}
-                                         onClick={() => selectGenre(info.title)}
-                                         data-genre={info.title}
-                                   > {info.title} </span>)}
-            </div>
-        </div>
+        <Grid xs={12} className={styles.GenreSelect} data-testid="GenreSelect">
+            {
+                genreList.map(info => <span key={info.title}
+                                            className={info.className}
+                                            onClick={() => selectGenre(info.title)}
+                                            data-genre={info.title}
+                              > {info.title} </span>
+                )
+            }
+        </Grid>
     )
 }
 
