@@ -28,14 +28,14 @@ const MovieTile = ({imageUrl, title, releaseYear, genres}) => {
     }
     return (
         <Grid className={styles.MovieTile}
-              xs={3}
+              xs={3} item={true}
               container
               justifyContent="space-between"
               alignItems="center"
               flexDirection={{xs: 'column', sm: 'row'}}
               data-testid="MovieTile"
         >
-            <Grid xs={12}>
+            <Grid xs={12} item={true}>
                 <div className={styles.MovieMenu}>
                     <Button variant="text"
                             style={menuBtnStyles}
@@ -60,9 +60,9 @@ const MovieTile = ({imageUrl, title, releaseYear, genres}) => {
                 </div>
                 <img src={imageUrl} alt={title}/>
             </Grid>
-            <Grid xs={4} className={styles.Title}>{title}</Grid>
-            <Grid xs={6} className={styles.ReleaseYear}><span>{releaseYear}</span></Grid>
-            <Grid xs={8} className={styles.Genres}>{genreRow}</Grid>
+            <Grid xs={4} item={true} className={styles.Title}>{title}</Grid>
+            <Grid xs={6} item={true} className={styles.ReleaseYear}><span>{releaseYear}</span></Grid>
+            <Grid xs={8} item={true} className={styles.Genres}>{genreRow}</Grid>
         </Grid>
     )
 };
@@ -73,7 +73,5 @@ MovieTile.propTypes = {
     releaseYear: PropTypes.number.isRequired,
     genres     : PropTypes.arrayOf(PropTypes.string).isRequired
 };
-
-MovieTile.defaultProps = {};
 
 export default MovieTile;

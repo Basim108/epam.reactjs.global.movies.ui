@@ -2,9 +2,6 @@
 import MovieTile                    from './MovieTile';
 import avengersUrl                  from './avengers.stories.png'
 import inceptionUrl                 from './inception.stories.png'
-import {ThemeProvider, createTheme} from '@mui/material/styles';
-import CssBaseline                  from '@mui/material/CssBaseline';
-import {Grid}                       from "@mui/material";
 
 export default {
     title     : "Movies/MovieTile",
@@ -16,20 +13,8 @@ export default {
     }
 };
 
-const darkTheme = createTheme({
-                                  palette: {
-                                      mode: 'dark',
-                                  },
-                              });
+const Template = (args) => <MovieTile {...args}/>
 
-const Template       = (args) => (
-    <ThemeProvider theme={darkTheme}>
-        <CssBaseline/>
-        <Grid xs={12} container spacing={2}>
-            <MovieTile {...args}/>
-        </Grid>
-    </ThemeProvider>
-)
 export const Default = Template.bind({})
 Default.story        = {
     name: 'Single genre',

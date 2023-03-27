@@ -31,7 +31,11 @@ const GenreSelect = (props) => {
     }
 
     return (
-        <Grid xs={12} className={styles.GenreSelect} data-testid="GenreSelect">
+        <Grid xs={8} item={true}
+              className={styles.GenreSelect} 
+              container
+              alignItems="center"
+              data-testid="GenreSelect">
             {
                 genreList.map(info => <span key={info.title}
                                             className={info.className}

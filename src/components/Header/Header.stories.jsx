@@ -1,5 +1,4 @@
 ﻿import Header from "./Header";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default {
     title     : 'Movies/Header',
@@ -11,10 +10,7 @@ export default {
     }
 }
 
-const Template       = (args) => (
-    <div className="container">
-        <Header {...args} />
-    </div>
-)
+const Template = (args) => <Header {...args} />
+
 export const Default = Template.bind({})
 Default.args         = {}

@@ -3,8 +3,13 @@ import styles    from './ToolBar.module.css';
 import {Grid}    from "@mui/material";
 
 const ToolBar = ({children}) => (
-  <Grid xs={12} container justifyContent="space-between" mt={1} 
-        className={styles.ToolBar} 
+  <Grid xs={12} container item={true}
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection={{ xs: 'column', sm: 'row' }} 
+        mt={1}
+        alignItems="center"
+        className={styles.ToolBar}
         data-testid="ToolBar">
       {children}
   </Grid>

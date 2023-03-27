@@ -2,9 +2,9 @@
     background: #232323;
     color: #FFFFFF;
     text-transform: uppercase;
-    width: 1200px;
     padding-left: 15px;
     border-bottom: 1px solid #424242;
+    height: 40px;
 }
 
 .selectedGenre {

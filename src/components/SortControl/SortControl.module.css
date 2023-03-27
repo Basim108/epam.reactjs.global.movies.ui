@@ -1,0 +1,10 @@
+.SortControl {
+    background: #232323;
+    color: #FFFFFF;
+    height: 40px;
+    text-transform: uppercase;
+}
+
+.SortControl span {
+    color: #767676;
+}

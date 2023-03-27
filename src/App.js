@@ -1,10 +1,11 @@
-import {ThemeProvider, createTheme} from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
 import CssBaseline                  from '@mui/material/CssBaseline';
 import styles                       from './App.module.css';
 import Header                       from "./components/Header/Header";
 import GenreSelect                  from "./components/GenreSelect/GenreSelect";
-import {Container, Grid}            from "@mui/material";
+import {Container}                  from "@mui/material";
 import ToolBar                      from "./components/ToolBar/ToolBar";
+import SortControl                  from "./components/SortControl/SortControl";
 
 const darkTheme = createTheme({
                                   palette: {
@@ -23,6 +24,7 @@ function App() {
                     <GenreSelect genreList={['All', 'Comedy', 'Drama', 'Romance']}
                                  activeGenre="Comedy"
                                  onSelect={genre => console.log('genre was selected: ', genre)}/>
+                    <SortControl onChange={by => console.log('sort by ', by)}/>
                 </ToolBar>
             </Container>
         </ThemeProvider>
