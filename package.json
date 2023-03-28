@@ -12,6 +12,14 @@
     "sb": "start-storybook -p 6006 -s public",
     "build-sb": "build-storybook -s public"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/{index,App,reportWebVitals}.{js,jsx}",
+      "!src/**/*.stories.{js,jsx}",
+      "!src/**/*.test.{js,jsx}",
+      "!src/**/*.e2e.{js,jsx}"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
