@@ -4,7 +4,7 @@ import styles            from './MovieDetails.module.css';
 import {Grid}            from "@mui/material";
 
 const MovieDetails = ({info}) => {
-    const [genreRow, _] = useState(info.genres.join(', '))
+    const [genreRow] = useState(info.genres.join(', '))
 
     return (
         <Grid xs={12} ml={4} item={true} container spacing={2}
