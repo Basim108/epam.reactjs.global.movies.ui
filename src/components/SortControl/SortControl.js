@@ -11,28 +11,30 @@ export const TITLE        = 'Title'
 
 const SortControl = ({value, onChange}) => {
     const [selectedItem, setSelectedItem] = useState(value)
-    const handleChange = (e) => {
+    const handleChange                    = (e) => {
         setSelectedItem(() => e.target.value)
-        if(onChange)
+        if (onChange) {
             onChange(e.target.value)
+        }
     }
 
     return (
-        <Grid xs={4} className={styles.SortControl} 
+        <Grid xs={4} className={styles.SortControl}
               data-testid="SortControl"
               container item={true}
               alignItems="center"
               justifyContent="end"
-              flexDirection={{ xs: 'column', sm: 'row' }}
->
+              flexDirection={{xs: 'column', sm: 'row'}}
+        >
             <span>Sort by</span>
-            <FormControl variant="standard" size="small" style={{marginLeft:'20px'}}>
+            <FormControl variant="standard" size="small" style={{marginLeft: '20px'}}>
                 <Select
                     display="inline-block"
                     id="sorted-by-select"
                     value={selectedItem}
+                    role="select"
                     label="sorted-by-select"
-                    sx={{ m: 1, mr:3, minWidth: 146 }}
+                    sx={{m: 1, mr: 3, minWidth: 146}}
                     onChange={handleChange}
                 >
                     <MenuItem value={RELEASE_DATE}>{RELEASE_DATE}</MenuItem>
@@ -44,7 +46,7 @@ const SortControl = ({value, onChange}) => {
 }
 
 SortControl.propTypes = {
-    value: PropTypes.oneOf([RELEASE_DATE, TITLE]),
+    value   : PropTypes.oneOf([RELEASE_DATE, TITLE]),
     onChange: PropTypes.func
 }
 

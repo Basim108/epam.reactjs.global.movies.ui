@@ -1,4 +1,5 @@
-﻿import Header from "./Header";
+﻿import Header      from "./Header";
+import {Container} from "@mui/material";
 
 export default {
     title     : 'Movies/Header',
@@ -10,7 +11,26 @@ export default {
     }
 }
 
-const Template = (args) => <Header {...args} />
+const Template = (args) => (
+        <Container fixed>
+            <Header {...args} />
+        </Container>
+)
 
 export const Default = Template.bind({})
-Default.args         = {}
+Default.story        = {
+    name: 'Search View',
+    args: {
+        isSearchView      : true,
+        isMovieDetailsView: false
+    }
+}
+
+export const MovieDetailsView = Template.bind({})
+MovieDetailsView.story        = {
+    name: 'Movie Details View',
+    args: {
+        isSearchView      : false,
+        isMovieDetailsView: true
+    }
+}

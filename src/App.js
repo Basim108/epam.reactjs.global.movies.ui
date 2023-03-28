@@ -6,6 +6,7 @@ import GenreSelect                  from "./components/GenreSelect/GenreSelect";
 import {Container}                  from "@mui/material";
 import ToolBar                      from "./components/ToolBar/ToolBar";
 import SortControl                  from "./components/SortControl/SortControl";
+import {useState}                   from "react";
 
 const darkTheme = createTheme({
                                   palette: {
@@ -14,12 +15,23 @@ const darkTheme = createTheme({
                               });
 
 function App() {
+    const [isSearchView, setIsSearchView]             = useState(false)
+    const [isMovieDetailsView, setIsMovieDetailsView] = useState(true)
+
+    const searchActivateHandler = () => {
+        console.log('change view to search')
+        setIsSearchView(() => true)
+        setIsMovieDetailsView(() => false)
+    }
 
     return (
         <ThemeProvider theme={darkTheme}>
             <CssBaseline/>
             <Container className={styles.App} fixed>
-                <Header/>
+                <Header isSearchView={isSearchView}
+                        isMovieDetailsView={isMovieDetailsView}
+                        onSearchActivate={searchActivateHandler}
+                />
                 <ToolBar>
                     <GenreSelect genreList={['All', 'Comedy', 'Drama', 'Romance']}
                                  activeGenre="Comedy"
