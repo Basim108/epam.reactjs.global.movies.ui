@@ -1,7 +1,7 @@
 ﻿import Counter from "./Counter"
 
 export default {
-    title: 'Movies/Counter',
+    title: 'Unused/Counter',
     component: Counter,
     argTypes: {
         initialValue: {

@@ -1,0 +1,35 @@
+.Modal {
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    background-color: rgb(35, 35, 35, 0.3);
+    position:  absolute;
+    top: 70px;
+    left: 20%;
+    min-width: 485px;
+    padding-bottom: 20px;
+}
+
+.Title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 49px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.ToolBar > button {
+    margin-top: 20px;
+    margin-left: 10px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 26px;
+    text-align: center;
+    text-transform: uppercase;
+}
