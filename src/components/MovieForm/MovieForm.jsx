@@ -65,7 +65,6 @@ const MovieForm = ({
                                    label="Title"
                                    value={updatedTitle}
                                    variant="standard"
-                                   required={true}
                                    onChange={e => setUpdatedTitle(e.target.value)}
                         />
                         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={enGb}>

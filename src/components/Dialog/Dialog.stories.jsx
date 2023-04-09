@@ -48,7 +48,7 @@ const Template = args => {
     <Container className={appStyles.App} fixed>
         <Grid xs={12} container className={headerStyles.Header} item={true}>
             <Dialog {...args}>
-                content
+                {args.children}
             </Dialog>
         </Grid>
     </Container>
@@ -56,13 +56,27 @@ const Template = args => {
 }
 export const Default = Template.bind({});
 Default.story = {
-    name: 'default',
+    name: 'Add Movie Dialog',
     args: {
         title: 'Add Movie',
         onClose: () => console.log('dialog closed!'),
         onReset: () => console.log('dialog reset!'),
         resetText: 'Reset',
         submitText: 'Submit',
-        onSubmit: () => console.log('dialog submitted!')
+        onSubmit: () => console.log('dialog submitted!'),
+        children: "some content. look at MovieForm component"
+    }
+};
+
+export const Delete = Template.bind({});
+Delete.story = {
+    name: 'Delete Dialog',
+    args: {
+        title: 'Delete Movie',
+        onClose: () => console.log('dialog closed!'),
+        submitText: 'Confirm',
+        onSubmit: () => console.log('dialog submitted!'),
+        onReset: null,
+        children: "Are you sure you want to delete this movie?"
     }
 };
