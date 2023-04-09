@@ -6,7 +6,7 @@ import {Container, Grid} from "@mui/material";
 import React from "react";
 
 export default {
-    title: "Dialog",
+    title: "Helpers/Dialog",
     component: Dialog,
     argTypes: {
         title: {

@@ -20,7 +20,7 @@ const Dialog = ({children, title, onClose, submitText, onSubmit, resetText, onRe
                         <ThemeProvider theme={darkTheme}>
                             <CssBaseline/>
                             <Container fixed>
-                                <Grid xs={12} container justifyContent="end">
+                                <Grid xs={12} container justifyContent="end" item={true}>
                                     <IconButton onClick={onClose} data-testid="CloseDialogBtn"> <CloseIcon fontSize="large"/> </IconButton>
                                 </Grid>
                                 <Grid xs={12} item={true} className={styles.Title}>{title}</Grid>
