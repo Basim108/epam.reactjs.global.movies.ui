@@ -1,46 +1,50 @@
-import React            from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import MovieTile        from './MovieTile';
-import userEvent        from "@testing-library/user-event";
+import MovieTile from './MovieTile';
+import userEvent from "@testing-library/user-event";
+import dayjs from "dayjs";
 
 describe('<MovieTile />', () => {
-    const movie = {
-        genres     : ['Action', 'Adventure', 'Drama'],
-        imageUrl   : '/assets/img/some.png',
-        title      : 'Avengers',
-        releaseYear: 2004
-    }
+    let movie
+
+    beforeEach(() => {
+        movie = {
+            id: 1,
+            genre: ['Action', 'Adventure', 'Drama'],
+            imageUrl: '/assets/img/some.png',
+            title: 'Avengers',
+            releaseDate: dayjs('2004-10-01', 'YYYY-MM-DD'),
+            rating: 7.8,
+            overview: 'Test overview'
+        }
+        render(<MovieTile info={movie} genreList={['Comedy']}/>)
+    })
 
     test('should mount it', () => {
-        render(<MovieTile {...movie} />);
         expect(screen.getByTestId('MovieTile')).toBeInTheDocument();
     });
 
     test('should render releaseYear', () => {
-        render(<MovieTile {...movie} />);
-        expect(screen.getByText(movie.releaseYear)).toBeInTheDocument();
+        expect(screen.getByText(movie.releaseDate.year())).toBeInTheDocument();
     });
 
     test('should render title', () => {
-        render(<MovieTile {...movie} />);
+
         expect(screen.getByText(movie.title)).toBeInTheDocument();
     });
 
     test('should join genres with comma', () => {
-        render(<MovieTile {...movie} />);
-        expect(screen.getByText(movie.genres.join(', '))).toBeInTheDocument();
+        expect(screen.getByText(movie.genre.join(', '))).toBeInTheDocument();
     });
 
     test('should render movie image', () => {
-        render(<MovieTile {...movie} />);
         const image = screen.getByAltText(movie.title)
         expect(image).toBeInTheDocument()
         expect(image.src).toEqual(`http://localhost${movie.imageUrl}`)
     });
 
-    test('should render movie context menu', async() => {
-        render(<MovieTile {...movie} />);
+    test('should render movie context menu', async () => {
         const button = screen.getByTestId('MovieContextMenuButton')
         expect(button).toBeInTheDocument()
         await userEvent.click(button)

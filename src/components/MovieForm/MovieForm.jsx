@@ -15,6 +15,7 @@ const MovieForm = ({
                        info: {id, title, releaseDate, imageUrl, rating, genre, runtime, overview},
                        genreList,
                        onSubmit,
+                       onClose,
                        isVisible
                    }) => {
     const [updatedTitle, setUpdatedTitle] = useState(title)
@@ -24,7 +25,6 @@ const MovieForm = ({
     const [updatedGenre, setUpdatedGenre] = useState(genre || [])
     const [updatedRuntime, setUpdatedRuntime] = useState(runtime)
     const [updatedOverview, setUpdatedOverview] = useState(overview)
-    const [isModalVisible, setIsModalVisible] = useState(isVisible)
 
     const isEditDialog = !!id || false
     const resetHandler = () => {
@@ -37,25 +37,23 @@ const MovieForm = ({
         setUpdatedOverview(overview || '')
     }
     const submitHandler = () => {
-        setIsModalVisible(false)
-        if (typeof onSubmit === 'function')
-            onSubmit({
-                id,
-                title: updatedTitle,
-                releaseDate: updatedReleaseDate ? updatedReleaseDate.format('YYYY-MM-DD') : null,
-                imageUrl: updatedImageUrl,
-                rating: updatedRating,
-                genre: updatedGenre,
-                runtime: updatedRuntime,
-                overview: updatedOverview
-            })
+        onSubmit({
+            id,
+            title: updatedTitle,
+            releaseDate: updatedReleaseDate,
+            imageUrl: updatedImageUrl,
+            rating: updatedRating,
+            genre: updatedGenre,
+            runtime: updatedRuntime,
+            overview: updatedOverview
+        })
     }
-    return isModalVisible && (
+    return isVisible && (
         <div className={styles.MovieForm} data-testid="MovieForm">
             <Dialog title={isEditDialog ? 'Edit Movie' : 'Add Movie'}
                     onReset={resetHandler}
                     onSubmit={submitHandler}
-                    onClose={() => setIsModalVisible(false)}
+                    onClose={onClose}
             >
                 <Box
                     sx={{
@@ -76,7 +74,7 @@ const MovieForm = ({
                                         slotProps={{textField: {variant: 'standard'}}}
                                         onChange={date => setUpdatedReleaseDate(date)}
                                         label="Release Date"
-                                        />
+                            />
                         </LocalizationProvider>
                     </div>
                     <div>
