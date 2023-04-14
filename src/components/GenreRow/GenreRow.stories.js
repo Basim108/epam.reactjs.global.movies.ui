@@ -2,15 +2,15 @@
 import GenreRow from './GenreRow';
 
 export default {
-  title: "Movies/GenreRow",
-  component: GenreRow
+  title: 'Movies/GenreRow',
+  component: GenreRow,
 };
 
-const Template = (args) => <GenreRow {...args}/>;
+const Template = args => <GenreRow {...args} />;
 export const Default = Template.bind({});
 Default.story = {
   name: 'default',
   args: {
-    genres: ['Comedy', 'Drams']
-  }
-}
+    genres: ['Comedy', 'Drams'],
+  },
+};

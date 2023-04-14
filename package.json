@@ -10,7 +10,9 @@
     "eject": "react-scripts eject",
     "wdio": "wdio run ./wdio.conf.js",
     "sb": "start-storybook -p 6006 -s public",
-    "build-sb": "build-storybook -s public"
+    "build-sb": "build-storybook -s public",
+    "lint": "prettier -w .",
+    "lintDry": "prettier -c ."
   },
   "jest": {
     "collectCoverageFrom": [
@@ -81,6 +83,7 @@
     "@wdio/spec-reporter": "^8.4.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chromedriver": "^111.0.0",
+    "prettier": "^2.8.7",
     "wdio-chromedriver-service": "^8.1.1",
     "webpack": "^5.76.3"
   }
