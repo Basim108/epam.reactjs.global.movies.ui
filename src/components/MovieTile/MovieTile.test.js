@@ -16,28 +16,18 @@ describe('<MovieTile />', () => {
         render(<MovieTile {...movie} />);
     })
 
-    test('should mount it', () => {
-        expect(screen.getByTestId('MovieTile')).toBeInTheDocument();
-    });
-
-    test('should render releaseYear', () => {
+    test('should render components content', () => {
         expect(screen.getByText(movie.releaseYear)).toBeInTheDocument();
-    });
-
-    test('should render title', () => {
         expect(screen.getByText(movie.title)).toBeInTheDocument();
-    });
 
-    test('should render all genres', () => {
         expect(screen.getByText('Action')).toBeInTheDocument();
         expect(screen.getByText(', Adventure')).toBeInTheDocument();
         expect(screen.getByText(', Drama')).toBeInTheDocument();
-    });
 
-    test('should render movie image', () => {
         const image = screen.getByAltText(movie.title)
         expect(image).toBeInTheDocument()
         expect(image.src).toEqual(`http://localhost${movie.imageUrl}`)
+
     });
 
     test('should render movie context menu', async() => {

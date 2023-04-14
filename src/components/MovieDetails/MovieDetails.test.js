@@ -27,40 +27,21 @@ describe('<MovieDetails />', () => {
         render(<MovieDetails info={info} />);
     })
     
-    test('should mount MovieDetails component', () => {
+    test('should render MovieDetails content', () => {
         expect(screen.getByTestId('MovieDetails')).toBeInTheDocument();
-    });
 
-    test('should movie post image', () => {
         const image = screen.getByAltText(info.title)
         expect(image).toBeInTheDocument();
         expect(image.src).toEqual(info.imageUrl);
-    });
 
-    test('should mount movie title', () => {
         expect(screen.getByText(info.title)).toBeInTheDocument();
-    });
-
-    test('should mount vote average', () => {
         expect(screen.getByText(info.voteAverage)).toBeInTheDocument();
-    });
+        expect(screen.getByText(info.releaseYear)).toBeInTheDocument();
+        expect(screen.getByText(info.runtime)).toBeInTheDocument();
+        expect(screen.getByText(info.overview)).toBeInTheDocument();
 
-    test('should render all genres', () => {
         expect(screen.getByText('Fantasy')).toBeInTheDocument();
         expect(screen.getByText(', Adventure')).toBeInTheDocument();
         expect(screen.getByText(', Science Fiction')).toBeInTheDocument();
     });
-
-    test('should mount releaseYear', () => {
-        expect(screen.getByText(info.releaseYear)).toBeInTheDocument();
-    });
-
-    test('should mount runtime', () => {
-        expect(screen.getByText(info.runtime)).toBeInTheDocument();
-    });
-
-    test('should mount overview', () => {
-        expect(screen.getByText(info.overview)).toBeInTheDocument();
-    });
-
 });
