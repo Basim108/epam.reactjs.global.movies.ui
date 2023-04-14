@@ -12,16 +12,16 @@ export const TITLE        = 'Title'
 const SortControl = ({value, onChange}) => {
     const [selectedItem, setSelectedItem] = useState(value)
     const handleChange                    = (e) => {
-        setSelectedItem(() => e.target.value)
+        setSelectedItem(e.target.value)
         if (onChange) {
             onChange(e.target.value)
         }
     }
 
     return (
-        <Grid xs={4} className={styles.SortControl}
+        <Grid xs={4} className={styles.sortControl}
               data-testid="SortControl"
-              container item={true}
+              container item
               alignItems="center"
               justifyContent="end"
               flexDirection={{xs: 'column', sm: 'row'}}

@@ -15,8 +15,8 @@ export default {
 };
 
 const Template  = args => (
-        <Container className={appStyles.App} fixed>
-            <Grid xs={12} container className={headerStyles.Header} item={true}>
+        <Container className={appStyles.app} fixed>
+            <Grid xs={12} container className={headerStyles.appHeader} item={true}>
                 <MovieDetails {...args} />
             </Grid>
         </Container>

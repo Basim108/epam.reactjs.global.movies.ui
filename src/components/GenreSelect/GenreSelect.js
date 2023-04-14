@@ -31,8 +31,8 @@ const GenreSelect = (props) => {
     }
 
     return (
-        <Grid xs={8} item={true}
-              className={styles.GenreSelect} 
+        <Grid xs={8} item
+              className={styles.genreSelect}
               container
               alignItems="center"
               data-testid="GenreSelect">

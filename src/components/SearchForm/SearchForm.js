@@ -7,9 +7,9 @@ const SearchForm = (props) => {
     const [query, setQuery] = useState(props.query)
     const onInputKeyPress   = (e) => e.key === 'Enter' && query && props.onSearch(query)
     return (
-        <Grid xs={12} ml={13} item={true}>
-            <div className={styles.Title}>Find Your Movie</div>
-            <label className={styles.SearchForm} data-testid="SearchForm">
+        <Grid xs={12} ml={13} item>
+            <div className={styles.title}>Find Your Movie</div>
+            <label className={styles.searchForm} data-testid="SearchForm">
                 <input type="text"
                        value={query}
                        placeholder="What do you want to watch?"

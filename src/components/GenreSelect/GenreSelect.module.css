@@ -1,4 +1,4 @@
-.GenreSelect {
+.genreSelect {
     background: #232323;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -8,6 +8,7 @@
 }
 
 .selectedGenre {
+    /* TODO: check the way to avoid !important*/
     border-bottom: 2px solid #F65261 !important;
 }
 

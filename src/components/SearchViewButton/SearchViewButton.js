@@ -4,8 +4,8 @@ import {Grid, IconButton} from "@mui/material";
 import PropTypes          from 'prop-types';
 
 const SearchViewButton = ({onClick}) => (
-    <Grid xs={2} mr={2} item={true} container alignItems="center" justifyContent="end"
-          className={styles.SearchViewButton}
+    <Grid xs={2} mr={2} item container alignItems="center" justifyContent="end"
+          className={styles.searchViewButton}
           data-testid="SearchViewButton">
         <IconButton onClick={onClick} color="secondary" aria-label="add an alarm">
             <SearchIcon/>

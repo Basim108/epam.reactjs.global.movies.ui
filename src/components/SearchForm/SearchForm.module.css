@@ -1,4 +1,4 @@
-.SearchForm {
+.searchForm {
     display: flex;
     align-items: center;
     vertical-align: center;
@@ -6,7 +6,7 @@
     margin-top: 15px;
 }
 
-.Title {
+.title {
     color: #FFFFFF;
     text-transform: uppercase;
     font-family: 'Montserrat';
@@ -15,7 +15,7 @@
     font-size: 40px;
 }
 
-.SearchForm > input {
+.searchForm > input {
     background-color: rgba(50, 50, 50, 0.8);
     color: white;
     
@@ -35,7 +35,7 @@
     height: 52px;
 }
 
-.SearchForm > button {
+.searchForm > button {
     height: 57px;
     width: 233px;
 

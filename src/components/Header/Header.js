@@ -18,11 +18,11 @@ const detailsViewBgStyle = {
 const Header = ({isSearchView, isMovieDetailsView, onSearchActivate}) => {
     const headerStyle = isSearchView ? searchViewBgStyle : detailsViewBgStyle 
     return (
-        <Grid xs={12} container item={true}
+        <Grid xs={12} container item
               style={{...headerStyle}}
-              className={styles.Header} data-testid="Header">
-            <Grid xs={12} mt={2} container justifyContent="space-between" item={true}>
-                <Grid ml={4} xs={2} item={true} className={styles.Logo}>
+              className={styles.appHeader} data-testid="Header">
+            <Grid xs={12} mt={2} container justifyContent="space-between" item>
+                <Grid ml={4} xs={2} item className={styles.appLogo}>
                     netflix<span>roulette</span>
                 </Grid>
                 {isMovieDetailsView && <SearchViewButton onClick={onSearchActivate}/>}

@@ -1,8 +1,8 @@
-.MovieDetails {
+.movieDetails {
     color: #FFFFFF;
 }
 
-.Title {
+.title {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
@@ -14,7 +14,7 @@
     opacity: 0.75;
 }
 
-.VoteAverage {
+.voteAverage {
     box-sizing: border-box;
     border: 1px solid white;
     border-radius: 50%;
@@ -28,7 +28,7 @@
     opacity: 0.6;
 }
 
-.Genres {
+.genres {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -39,7 +39,7 @@
     opacity: 0.6;
 }
 
-.ReleaseYear {
+.releaseYear {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
@@ -49,7 +49,7 @@
     color: #F65261;
 }
 
-.RunTime {
+.runTime {
     margin-left: 25px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -60,7 +60,7 @@
     color: #F65261;
 }
 
-.Overview {
+.overview {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 300;
