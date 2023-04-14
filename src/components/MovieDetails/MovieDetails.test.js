@@ -45,8 +45,10 @@ describe('<MovieDetails />', () => {
         expect(screen.getByText(info.voteAverage)).toBeInTheDocument();
     });
 
-    test('should mount genres', () => {
-        expect(screen.getByText(info.genres.join(', '))).toBeInTheDocument();
+    test('should render all genres', () => {
+        expect(screen.getByText('Fantasy')).toBeInTheDocument();
+        expect(screen.getByText(', Adventure')).toBeInTheDocument();
+        expect(screen.getByText(', Science Fiction')).toBeInTheDocument();
     });
 
     test('should mount releaseYear', () => {

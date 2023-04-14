@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
 import PropTypes         from 'prop-types';
 import styles            from './MovieDetails.module.css';
 import {Grid}            from "@mui/material";
+import GenreRow from '../GenreRow/GenreRow';
 
 const MovieDetails = ({info}) => {
-    const [genreRow] = useState(info.genres.join(', '))
-
     return (
         <Grid xs={12} ml={4} item container spacing={2}
               className={styles.movieDetails} data-testid="MovieDetails">
@@ -15,7 +13,7 @@ const MovieDetails = ({info}) => {
                     <span className={styles.title}>{info.title}</span>
                     <span className={styles.voteAverage}>{info.voteAverage}</span>
                 </Grid>
-                <Grid xs={12} item className={styles.genres}>{genreRow}</Grid>
+                <Grid xs={12} item className={styles.genres}><GenreRow genres={info.genres}/></Grid>
                 <Grid xs={12} item>
                     <span className={styles.releaseYear}>{info.releaseYear}</span>
                     <span className={styles.runTime}>{info.runtime}</span>

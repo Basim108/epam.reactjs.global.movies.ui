@@ -5,9 +5,7 @@ import Select      from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import {useState}  from "react";
 import PropTypes   from "prop-types";
-
-export const RELEASE_DATE = 'Release Date'
-export const TITLE        = 'Title'
+import { RELEASE_DATE, TITLE} from './constant';
 
 const SortControl = ({value, onChange}) => {
     const [selectedItem, setSelectedItem] = useState(value)
@@ -48,10 +46,6 @@ const SortControl = ({value, onChange}) => {
 SortControl.propTypes = {
     value   : PropTypes.oneOf([RELEASE_DATE, TITLE]),
     onChange: PropTypes.func
-}
-
-SortControl.defaultProps = {
-    value: RELEASE_DATE,
 }
 
 export default SortControl;

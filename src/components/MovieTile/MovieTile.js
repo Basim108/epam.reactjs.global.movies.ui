@@ -1,4 +1,3 @@
-import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import styles from './MovieTile.module.css'
 import Button from '@mui/material/Button'
@@ -13,8 +12,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {Box, Container, Grid} from "@mui/material";
-
-const GENRE_DELIMITER = ', '
+import GenreRow from '../GenreRow/GenreRow';
 
 const MovieTile = ({imageUrl, title, releaseYear, genres}) => {
     const popupState = usePopupState({variant: 'popover'})
@@ -50,7 +48,7 @@ const MovieTile = ({imageUrl, title, releaseYear, genres}) => {
             </Grid>
             <Grid xs={4} item className={styles.title}>{title}</Grid>
             <Grid xs={6} item className={styles.releaseYear}><span>{releaseYear}</span></Grid>
-            <Grid xs={8} item className={styles.genres}>{genres.join(GENRE_DELIMITER)}</Grid>
+            <Grid xs={8} item className={styles.genres}><GenreRow genres={genres} /></Grid>
         </Grid>
     )
 };

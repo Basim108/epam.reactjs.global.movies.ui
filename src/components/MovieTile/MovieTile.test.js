@@ -5,15 +5,14 @@ import MovieTile        from './MovieTile';
 import userEvent        from "@testing-library/user-event";
 
 describe('<MovieTile />', () => {
-    let movie;
+    const movie = {
+        genres     : ['Action', 'Adventure', 'Drama'],
+        imageUrl   : '/assets/img/some.png',
+        title      : 'Avengers',
+        releaseYear: 2004
+    }
 
     beforeEach(() => {
-        movie = {
-            genres     : ['Action', 'Adventure', 'Drama'],
-            imageUrl   : '/assets/img/some.png',
-            title      : 'Avengers',
-            releaseYear: 2004
-        }
         render(<MovieTile {...movie} />);
     })
 
@@ -29,8 +28,10 @@ describe('<MovieTile />', () => {
         expect(screen.getByText(movie.title)).toBeInTheDocument();
     });
 
-    test('should join genres with comma', () => {
-        expect(screen.getByText(movie.genres.join(', '))).toBeInTheDocument();
+    test('should render all genres', () => {
+        expect(screen.getByText('Action')).toBeInTheDocument();
+        expect(screen.getByText(', Adventure')).toBeInTheDocument();
+        expect(screen.getByText(', Drama')).toBeInTheDocument();
     });
 
     test('should render movie image', () => {

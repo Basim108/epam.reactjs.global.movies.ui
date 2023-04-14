@@ -5,8 +5,9 @@ import Header from "./components/Header/Header";
 import GenreSelect from "./components/GenreSelect/GenreSelect";
 import {Container} from "@mui/material";
 import ToolBar from "./components/ToolBar/ToolBar";
-import SortControl, {RELEASE_DATE} from "./components/SortControl/SortControl";
+import SortControl from "./components/SortControl/SortControl";
 import {useState} from "react";
+import {RELEASE_DATE} from './components/SortControl/constant';
 
 const darkTheme = createTheme({
     palette: {
