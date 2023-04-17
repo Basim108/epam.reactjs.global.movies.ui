@@ -14,18 +14,18 @@ describe('<SortControl />', () => {
   });
 
   test('should set sorting field to Title from props', () => {
-    render(<SortControl value="Title" />);
+    render(<SortControl sortBy="Title" />);
     expect(screen.getByDisplayValue('Title').value).toEqual('Title');
   });
 
   test('should set sorting field to Release Date from props', () => {
-    render(<SortControl value="Release Date" />);
+    render(<SortControl sortBy="Release Date" />);
     expect(screen.getByDisplayValue('Release Date').value).toEqual('Release Date');
   });
 
   test('should invoke onChange callback when sorting field is changed', async () => {
     const changeHandler = jest.fn();
-    render(<SortControl onChange={changeHandler} value="Release Date" />);
+    render(<SortControl onChange={changeHandler} sortBy="Release Date" />);
     fireEvent.mouseDown(screen.getByRole('button'));
     const listbox = within(screen.getByRole('listbox'));
     fireEvent.click(listbox.getByText('Title'));

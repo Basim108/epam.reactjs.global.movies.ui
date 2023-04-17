@@ -18,6 +18,7 @@ const darkTheme = createTheme({
 function App() {
   const [isSearchView, setIsSearchView] = useState(false);
   const [isMovieDetailsView, setIsMovieDetailsView] = useState(true);
+  const [activeGenre, setActiveGenre] = useState('Comedy');
 
   const searchActivateHandler = () => {
     console.log('change view to search');
@@ -33,10 +34,10 @@ function App() {
         <ToolBar>
           <GenreSelect
             genreList={['All', 'Comedy', 'Drama', 'Romance']}
-            activeGenre="Comedy"
-            onSelect={genre => console.log('genre was selected: ', genre)}
+            activeGenre={activeGenre}
+            onSelect={genre => setActiveGenre(genre)}
           />
-          <SortControl onChange={by => console.log('sort by ', by)} value={RELEASE_DATE} />
+          <SortControl onChange={by => console.log('sort by ', by)} sortBy={RELEASE_DATE} />
         </ToolBar>
       </Container>
     </ThemeProvider>

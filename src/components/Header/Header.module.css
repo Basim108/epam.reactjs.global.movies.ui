@@ -17,3 +17,13 @@
 .appLogo > span {
   font-weight: normal;
 }
+
+.searchViewBg {
+  background-color: #000;
+  background-image: url('../../assets/img/header.png');
+}
+
+.detailsViewBg {
+  background-color: #232323;
+  background-image: none;
+}

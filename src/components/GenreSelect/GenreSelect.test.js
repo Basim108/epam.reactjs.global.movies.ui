@@ -1,6 +1,5 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import GenreSelect from './GenreSelect';
-import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
@@ -20,11 +19,11 @@ describe('<GenreSelect />', () => {
     render(<GenreSelect activeGenre="Comedy" genreList={genreList} onSelect={selectHandler} />);
     const allGenre = screen.getByText('All');
     expect(allGenre).toBeInTheDocument();
-    expect(allGenre).not.toHaveClass('selectedGenre');
+    expect(allGenre.className).not.toContain('selectedGenre');
 
     const comedyGenre = screen.getByText('Comedy');
     expect(comedyGenre).toBeInTheDocument();
-    expect(comedyGenre).toHaveClass('selectedGenre');
+    expect(comedyGenre.className).toContain('selectedGenre');
   });
 
   test('should make Comedy active and call onSelect after clicking on Comedy genre', async () => {
@@ -32,16 +31,16 @@ describe('<GenreSelect />', () => {
 
     const allGenre = screen.getByText('All');
     expect(allGenre).toBeInTheDocument();
-    expect(allGenre).toHaveClass('selectedGenre');
+    expect(allGenre.className).toContain('selectedGenre');
 
     const comedyGenre = screen.getByText('Comedy');
     expect(comedyGenre).toBeInTheDocument();
-    expect(comedyGenre).not.toHaveClass('selectedGenre');
+    expect(comedyGenre.className).not.toContain('selectedGenre');
 
     await userEvent.click(comedyGenre);
 
-    expect(allGenre).not.toHaveClass('selectedGenre');
-    expect(comedyGenre).toHaveClass('selectedGenre');
+    expect(allGenre.className).not.toContain('selectedGenre');
+    expect(comedyGenre.className).toContain('selectedGenre');
     expect(selectHandler).toHaveBeenCalledTimes(1);
     expect(selectHandler).toHaveBeenCalledWith('Comedy');
   });

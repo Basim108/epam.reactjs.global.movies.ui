@@ -8,3 +8,13 @@
 .sortControl span {
   color: #767676;
 }
+
+.sortControlForm {
+  margin-left: 20px;
+}
+
+.sortControl div[role='select'] {
+  min-width: 146px;
+  margin-left: 5px;
+  margin-right: 10px;
+}

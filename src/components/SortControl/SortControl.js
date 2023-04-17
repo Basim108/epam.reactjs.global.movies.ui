@@ -7,15 +7,14 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RELEASE_DATE, TITLE } from './constant';
 
-const SortControl = ({ value, onChange }) => {
-  const [selectedItem, setSelectedItem] = useState(value);
+const SortControl = ({ sortBy, onChange }) => {
+  const [selectedItem, setSelectedItem] = useState(sortBy);
   const handleChange = e => {
     setSelectedItem(e.target.value);
     if (onChange) {
       onChange(e.target.value);
     }
   };
-
   return (
     <Grid
       xs={4}
@@ -28,14 +27,13 @@ const SortControl = ({ value, onChange }) => {
       flexDirection={{ xs: 'column', sm: 'row' }}
     >
       <span>Sort by</span>
-      <FormControl variant="standard" size="small" style={{ marginLeft: '20px' }}>
+      <FormControl variant="standard" size="small" className={styles.sortControlForm}>
         <Select
           display="inline-block"
           id="sorted-by-select"
           value={selectedItem}
           role="select"
           label="sorted-by-select"
-          sx={{ m: 1, mr: 3, minWidth: 146 }}
           onChange={handleChange}
         >
           <MenuItem value={RELEASE_DATE}>{RELEASE_DATE}</MenuItem>

@@ -6,19 +6,10 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
 import moviesBgImg from '../../assets/img/header.png';
 
-const searchViewBgStyle = {
-  backgroundColor: 'black',
-  backgroundImage: `url(${moviesBgImg})`,
-};
-const detailsViewBgStyle = {
-  backgroundColor: '#232323',
-  backgroundImage: 'none',
-};
-
 const Header = ({ isSearchView, isMovieDetailsView, onSearchActivate }) => {
-  const headerStyle = isSearchView ? searchViewBgStyle : detailsViewBgStyle;
+  const headerBgClaaName = isSearchView ? styles.searchViewBg : styles.detailsViewBg;
   return (
-    <Grid xs={12} container item style={{ ...headerStyle }} className={styles.appHeader} data-testid="Header">
+    <Grid xs={12} container item className={[styles.appHeader, headerBgClaaName]} data-testid="Header">
       <Grid xs={12} mt={2} container justifyContent="space-between" item>
         <Grid ml={4} xs={2} item className={styles.appLogo}>
           netflix<span>roulette</span>
