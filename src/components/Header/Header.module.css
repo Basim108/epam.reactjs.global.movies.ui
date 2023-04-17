@@ -1,31 +1,29 @@
-.Header {
-    background-color: black;
-    background-image: url('../../assets/img/header.png');
-    height: 396px;
-    width: 1200px;
+.appHeader {
+  height: 396px;
+  width: 1200px;
 }
 
-.title {
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    line-height: 49px;
+.appLogo {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  font-weight: bold;
+
+  color: #f65261;
+  margin-left: 40px;
 }
 
-.logo {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: bold;
-    
-    color: #F65261;
+.appLogo > span {
+  font-weight: normal;
 }
 
-.logo > span {
-    font-weight: normal;
+.searchViewBg {
+  background-color: #000;
+  background-image: url('../../assets/img/header.png');
+}
+
+.detailsViewBg {
+  background-color: #232323;
+  background-image: none;
 }

@@ -1,3 +1,5 @@
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/project/overview?id=Basim108_epam.reactjs.global.movies.ui)
+
 ### Definition
 
 During the whole program you will be implementing a single page app (SPA), which will allow users to search, view, add and delete movies from the Movies DB database.

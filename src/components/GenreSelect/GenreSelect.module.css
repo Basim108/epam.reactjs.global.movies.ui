@@ -1,18 +1,19 @@
-.GenreSelect {
-    background: #232323;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    width: 1200px;
-    padding-left: 15px;
-    border-bottom: 1px solid #424242;
+.genreSelect {
+  background: #232323;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-left: 15px;
+  border-bottom: 1px solid #424242;
+  height: 40px;
 }
 
 .selectedGenre {
-    border-bottom: 2px solid #F65261 !important;
+  /* TODO: check the way to avoid !important*/
+  border-bottom: 2px solid #f65261 !important;
 }
 
 .genre {
-    cursor: pointer;
-    margin: 10px;
-    padding-bottom: 3px;
+  cursor: pointer;
+  margin: 10px;
+  padding-bottom: 3px;
 }

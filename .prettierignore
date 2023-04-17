@@ -1,0 +1,11 @@
+.idea
+.vscode
+.vs
+.husky
+node_modules
+
+package.json
+package-lock.json
+coverage
+build
+static
