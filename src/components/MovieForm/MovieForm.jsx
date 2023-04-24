@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './MovieForm.module.css';
 import Dialog from '../Dialog/Dialog';
 import { Box, Input, InputLabel, TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
