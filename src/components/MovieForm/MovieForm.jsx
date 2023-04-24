@@ -29,7 +29,7 @@ const MovieForm = ({ info, genreList, onSubmit, onClose, isVisible }) => {
 
   return (
     isVisible && (
-      <div className={styles.movieForm} data-testid="MovieForm">
+      <div data-testid="MovieForm">
         <Dialog
           title={isEditDialog ? 'Edit Movie' : 'Add Movie'}
           onReset={resetHandler}
