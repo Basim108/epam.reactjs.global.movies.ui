@@ -1,55 +1,55 @@
-.SearchForm {
-    display: flex;
-    align-items: center;
-    vertical-align: center;
-    color: #FFFFFF;
-    margin-top: 15px;
+.searchForm {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  color: #ffffff;
+  margin-top: 15px;
 }
 
-.Title {
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
+.title {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
 }
 
-.SearchForm > input {
-    background-color: rgba(50, 50, 50, 0.8);
-    color: white;
-    
-    padding-left: 19px;
+.searchForm > input {
+  background-color: rgba(50, 50, 50, 0.8);
+  color: white;
 
-    mix-blend-mode: normal;
-    opacity: 0.7;
-    border-radius: 4px;
+  padding-left: 19px;
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+  border-radius: 4px;
 
-    width: 713px;
-    height: 52px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  width: 713px;
+  height: 52px;
 }
 
-.SearchForm > button {
-    height: 57px;
-    width: 233px;
+.searchForm > button {
+  height: 57px;
+  width: 233px;
 
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
 
-    color: #FFFFFF;
+  color: #ffffff;
 
-    background-color: #F65261;
-    border-radius: 4px;
-    margin-left: 15px;
+  background-color: #f65261;
+  border-radius: 4px;
+  margin-left: 15px;
 }

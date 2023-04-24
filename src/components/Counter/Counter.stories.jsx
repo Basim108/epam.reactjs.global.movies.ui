@@ -1,24 +1,24 @@
-﻿import Counter from "./Counter"
+import Counter from './Counter';
 
 export default {
-    title: 'Unused/Counter',
-    component: Counter,
-    argTypes: {
-        initialValue: {
-            type: 'number',
-            description: 'the initial value that counter starts from',
-            defaultValue: 0
-        }
-    }
-}
+  title: 'Unused/Counter',
+  component: Counter,
+  argTypes: {
+    initialValue: {
+      type: 'number',
+      description: 'the initial value that counter starts from',
+      defaultValue: 0,
+    },
+  },
+};
 
-const Template = (arg) => <Counter {...arg} />
-export const Default = Template.bind({})
+const Template = arg => <Counter {...arg} />;
+export const Default = Template.bind({});
 Default.args = {
-    initialValue: 0
-}
+  initialValue: 0,
+};
 
-export const Initialized = Template.bind({})
+export const Initialized = Template.bind({});
 Initialized.args = {
-    initialValue: 23
-}
+  initialValue: 23,
+};
