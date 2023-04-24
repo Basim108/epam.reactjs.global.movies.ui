@@ -1,4 +1,5 @@
 ﻿import GenreSelect from './GenreSelect';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/GenreSelect',

@@ -16,7 +16,7 @@ img {
   align-items: end;
   display: contents;
   color: #979797;
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -48,7 +48,7 @@ img {
 
 .genres {
   color: #555555;
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -57,7 +57,7 @@ img {
 
 .title {
   color: #979797;
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styles from '../../App.module.css';
 import { Container, Grid } from '@mui/material';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/MovieTile',

@@ -4,6 +4,7 @@ import appStyles from '../../App.module.css';
 import headerStyles from '../Header/Header.module.css';
 import { Container, Grid } from '@mui/material';
 import React from 'react';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Helpers/Dialog',

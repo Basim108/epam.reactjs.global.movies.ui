@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import { RELEASE_DATE, TITLE } from './constant';
-
+import '../../assets/fonts/montserrat.css';
 export default {
   title: 'Movies/SortControl',
   component: SortControl,

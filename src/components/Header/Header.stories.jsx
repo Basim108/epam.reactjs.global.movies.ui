@@ -1,5 +1,6 @@
 ﻿import Header from './Header';
 import { Container } from '@mui/material';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/Header',

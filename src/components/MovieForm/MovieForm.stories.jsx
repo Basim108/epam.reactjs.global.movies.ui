@@ -1,5 +1,5 @@
 import MovieForm from './MovieForm';
-
+import '../../assets/fonts/montserrat.css';
 export default {
   title: 'Movies/MovieForm',
   component: MovieForm,

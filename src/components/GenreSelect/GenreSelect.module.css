@@ -1,6 +1,7 @@
 .genreSelect {
   background: #232323;
   color: #ffffff;
+  font-family: Montserrat;
   text-transform: uppercase;
   padding-left: 15px;
   border-bottom: 1px solid #424242;
@@ -8,7 +9,6 @@
 }
 
 .selectedGenre {
-  /* TODO: check the way to avoid !important*/
   border-bottom: 2px solid #f65261 !important;
 }
 
