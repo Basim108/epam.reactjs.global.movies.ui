@@ -2,11 +2,12 @@
 import MovieTile from './MovieTile';
 import avengersUrl from './avengers.stories.png';
 import inceptionUrl from './inception.stories.png';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styles from '../../App.module.css';
 import { Container, Grid } from '@mui/material';
 import '../../assets/fonts/montserrat.css';
+import { darkTheme } from '../../constants/theme';
 
 export default {
   title: 'Movies/MovieTile',
@@ -17,12 +18,6 @@ export default {
     },
   },
 };
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
 const Template = args => (
   <ThemeProvider theme={darkTheme}>

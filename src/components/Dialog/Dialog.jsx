@@ -2,17 +2,13 @@ import styles from './Dialog.module.css';
 import { createPortal } from 'react-dom';
 import { Box, Container, Grid, IconButton } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
+import { darkTheme } from '../../constants/theme';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
-const Dialog = ({ children, title, onClose, submitText, onSubmit, resetText, onReset }) => {
+const Dialog = ({ children, title, onClose, submitText, onSubmit, onReset }) => {
   return (
     <>
       {createPortal(
@@ -20,22 +16,22 @@ const Dialog = ({ children, title, onClose, submitText, onSubmit, resetText, onR
           <ThemeProvider theme={darkTheme}>
             <CssBaseline />
             <Container fixed>
-              <Grid xs={12} container justifyContent="end" item={true}>
+              <Grid xs={12} container justifyContent="end" item>
                 <IconButton onClick={onClose} data-testid="CloseDialogBtn">
                   {' '}
                   <CloseIcon fontSize="large" />{' '}
                 </IconButton>
               </Grid>
-              <Grid xs={12} item={true} className={styles.title}>
+              <Grid xs={12} item className={styles.title}>
                 {title}
               </Grid>
-              <Grid xs={12} item={true}>
+              <Grid xs={12} item>
                 {children}
               </Grid>
-              <Grid xs={12} item={true} className={styles.toolBar} container justifyContent="end">
+              <Grid xs={12} item className={styles.toolBar} container justifyContent="end">
                 {onReset && (
                   <Button variant="outlined" size="large" color="error" onClick={onReset}>
-                    {resetText}
+                    Reset
                   </Button>
                 )}
                 <Button variant="contained" size="large" color="error" onClick={onSubmit}>
@@ -62,7 +58,6 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   submitText: 'Submit',
-  resetText: 'Reset',
 };
 
 export default Dialog;

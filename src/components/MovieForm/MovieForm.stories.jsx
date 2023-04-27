@@ -23,7 +23,7 @@ Default.story = {
   name: 'Edit Movie',
   args: {
     genreList: ['Adventure', 'Documentary', 'Comedy', 'Horror', 'Science Fiction', 'Crime', 'Romance', 'Fantasy'],
-    isVisible: true,
+    isOpen: true,
     info: {
       id: 181808,
       title: 'Star Wars: The Last Jedi',
@@ -44,7 +44,7 @@ AddMovie.story = {
   name: 'Add Movie',
   args: {
     genreList: ['Adventure', 'Documentary', 'Comedy', 'Horror', 'Science Fiction', 'Crime', 'Romance', 'Fantasy'],
-    isVisible: true,
+    isOpen: true,
     info: {},
     onSubmit: info => console.log('created movie:', info),
   },

@@ -20,29 +20,24 @@ describe('<Dialog />', () => {
   });
 
   test('should not mount reset button when no onReset props passed', () => {
-    render(<Dialog resetText="TestReset" />);
-    expect(screen.queryByText('TestReset')).not.toBeInTheDocument();
+    render(<Dialog />);
+    expect(screen.queryByText('Reset')).not.toBeInTheDocument();
   });
 
   test('should mount reset button when no onReset props passed', () => {
-    render(<Dialog resetText="TestReset" onReset={() => null} />);
-    expect(screen.getByText('TestReset')).toBeInTheDocument();
+    render(<Dialog onReset={() => null} />);
+    expect(screen.getByText('Reset')).toBeInTheDocument();
   });
 
   test('should bind onReset handler', () => {
     const resetHandler = jest.fn();
-    render(<Dialog resetText="TestReset" onReset={resetHandler} />);
+    render(<Dialog onReset={resetHandler} />);
 
-    const resetBtn = screen.getByText('TestReset');
+    const resetBtn = screen.getByText('Reset');
     expect(resetBtn).toBeInTheDocument();
     userEvent.click(resetBtn);
 
     expect(resetHandler).toBeCalledTimes(1);
-  });
-
-  test('should set default reset caption', () => {
-    render(<Dialog onReset={() => null} />);
-    expect(screen.getByText('Reset')).toBeInTheDocument();
   });
 
   test('should set default submit caption', () => {

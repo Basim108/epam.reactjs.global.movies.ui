@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers';
 import enGb from 'dayjs/locale/en-gb';
 
-const MovieForm = ({ info, genreList, onSubmit, onClose, isVisible }) => {
+const MovieForm = ({ info, genreList, onSubmit, onClose, isOpen }) => {
   // QUESTION: would it be better to use useReducer here? or it will be over-complication?
   const [movieInfo, setMovieInfo] = useState({
     ...info,
@@ -18,7 +18,7 @@ const MovieForm = ({ info, genreList, onSubmit, onClose, isVisible }) => {
     releaseDate: info.releaseDate ? dayjs(info.releaseDate, 'YYYY-MM-DD') : null,
   });
 
-  const isEditDialog = !!movieInfo.id || false;
+  const isEditDialog = !!movieInfo.id;
   const resetHandler = () =>
     setMovieInfo(() => ({
       ...info,
@@ -27,97 +27,96 @@ const MovieForm = ({ info, genreList, onSubmit, onClose, isVisible }) => {
     }));
 
   return (
-    isVisible && (
-      <div data-testid="MovieForm">
-        <Dialog
-          title={isEditDialog ? 'Edit Movie' : 'Add Movie'}
-          onReset={resetHandler}
-          onSubmit={() => onSubmit(movieInfo)}
-          onClose={onClose}
+    isOpen && (
+      <Dialog
+        data-testid="MovieForm"
+        title={isEditDialog ? 'Edit Movie' : 'Add Movie'}
+        onReset={resetHandler}
+        onSubmit={() => onSubmit(movieInfo)}
+        onClose={onClose}
+      >
+        <Box
+          sx={{
+            '& .MuiTextField-root': { m: 2, width: '50ch' },
+          }}
         >
-          <Box
-            sx={{
-              '& .MuiTextField-root': { m: 2, width: '50ch' },
-            }}
-          >
-            <div>
-              <TextField
-                id="movie-form-title"
-                data-testid="movie-form-title"
-                label="Title"
-                value={movieInfo.title}
-                variant="standard"
-                onChange={e => setMovieInfo(prev => ({ ...prev, title: e.target.value }))}
+          <div>
+            <TextField
+              id="movie-form-title"
+              data-testid="movie-form-title"
+              label="Title"
+              value={movieInfo.title}
+              variant="standard"
+              onChange={e => setMovieInfo(prev => ({ ...prev, title: e.target.value }))}
+            />
+            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={enGb}>
+              <DatePicker
+                id="movie-form-release-date"
+                value={movieInfo.releaseDate}
+                slotProps={{ textField: { variant: 'standard' } }}
+                onChange={date => setMovieInfo(prev => ({ ...prev, releaseDate: date }))}
+                label="Release Date"
               />
-              <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={enGb}>
-                <DatePicker
-                  id="movie-form-release-date"
-                  value={movieInfo.releaseDate}
-                  slotProps={{ textField: { variant: 'standard' } }}
-                  onChange={date => setMovieInfo(prev => ({ ...prev, releaseDate: date }))}
-                  label="Release Date"
-                />
-              </LocalizationProvider>
-            </div>
-            <div>
-              <TextField
-                id="movie-form-image-url"
-                data-testid="movie-form-image-url"
-                label="url"
-                value={movieInfo.imageUrl}
-                variant="standard"
-                onChange={e => setMovieInfo(prev => ({ ...prev, imageUrl: e.target.value }))}
-              />
-              <TextField
-                id="movie-form-rating"
-                data-testid="movie-form-rating"
-                label="Rating"
-                value={movieInfo.rating}
-                variant="standard"
-                onChange={e => setMovieInfo(prev => ({ ...prev, rating: e.target.value }))}
-              />
-            </div>
-            <div>
-              <TextField
-                id="movie-form-genre"
-                data-testid="movie-form-genre"
-                label="Genre"
-                value={movieInfo.genre}
-                variant="standard"
-                placeholder="Select Genre"
-                select
-                inputProps={{ multiple: true }}
-                onChange={e => setMovieInfo(prev => ({ ...prev, genre: e.target.value }))}
-              >
-                {genreList.map(option => (
-                  <MenuItem key={option} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <TextField
-                id="movie-form-runtime"
-                data-testid="movie-form-runtime"
-                label="Runtime"
-                value={movieInfo.runtime}
-                variant="standard"
-                onChange={e => setMovieInfo(prev => ({ ...prev, runtime: e.target.value }))}
-              />
-            </div>
-            <FormControl sx={{ m: 2, width: '103ch' }} variant="standard">
-              <InputLabel htmlFor="movie-form-overview">Overview</InputLabel>
-              <Input
-                id="movie-form-overview"
-                data-testid="movie-form-overview"
-                multiline
-                value={movieInfo.overview}
-                variant="standard"
-                onChange={e => setMovieInfo(prev => ({ ...prev, overview: e.target.value }))}
-              />
-            </FormControl>
-          </Box>
-        </Dialog>
-      </div>
+            </LocalizationProvider>
+          </div>
+          <div>
+            <TextField
+              id="movie-form-image-url"
+              data-testid="movie-form-image-url"
+              label="url"
+              value={movieInfo.imageUrl}
+              variant="standard"
+              onChange={e => setMovieInfo(prev => ({ ...prev, imageUrl: e.target.value }))}
+            />
+            <TextField
+              id="movie-form-rating"
+              data-testid="movie-form-rating"
+              label="Rating"
+              value={movieInfo.rating}
+              variant="standard"
+              onChange={e => setMovieInfo(prev => ({ ...prev, rating: e.target.value }))}
+            />
+          </div>
+          <div>
+            <TextField
+              id="movie-form-genre"
+              data-testid="movie-form-genre"
+              label="Genre"
+              value={movieInfo.genre}
+              variant="standard"
+              placeholder="Select Genre"
+              select
+              inputProps={{ multiple: true }}
+              onChange={e => setMovieInfo(prev => ({ ...prev, genre: e.target.value }))}
+            >
+              {genreList.map(option => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              id="movie-form-runtime"
+              data-testid="movie-form-runtime"
+              label="Runtime"
+              value={movieInfo.runtime}
+              variant="standard"
+              onChange={e => setMovieInfo(prev => ({ ...prev, runtime: e.target.value }))}
+            />
+          </div>
+          <FormControl sx={{ m: 2, width: '103ch' }} variant="standard">
+            <InputLabel htmlFor="movie-form-overview">Overview</InputLabel>
+            <Input
+              id="movie-form-overview"
+              data-testid="movie-form-overview"
+              multiline
+              value={movieInfo.overview}
+              variant="standard"
+              onChange={e => setMovieInfo(prev => ({ ...prev, overview: e.target.value }))}
+            />
+          </FormControl>
+        </Box>
+      </Dialog>
     )
   );
 };
@@ -134,7 +133,7 @@ MovieForm.propTypes = {
     runtime: PropTypes.string,
     overview: PropTypes.string,
   }),
-  isVisible: PropTypes.bool,
+  isOpen: PropTypes.bool,
   onSubmit: PropTypes.func,
 };
 

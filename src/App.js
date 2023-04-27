@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import styles from './App.module.css';
 import Header from './components/Header/Header';
@@ -8,12 +8,7 @@ import ToolBar from './components/ToolBar/ToolBar';
 import SortControl from './components/SortControl/SortControl';
 import { useState } from 'react';
 import { RELEASE_DATE } from './components/SortControl/constant';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+import { darkTheme } from './constants/theme';
 
 function App() {
   const [isSearchView, setIsSearchView] = useState(false);
