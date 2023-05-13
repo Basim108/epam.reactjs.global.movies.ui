@@ -9,6 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers';
 import enGb from 'dayjs/locale/en-gb';
+import styles from './MovieForm.module.scss';
 
 const MovieForm = ({ info, genreList, onSubmit, onClose, isOpen }) => {
   // QUESTION: would it be better to use useReducer here? or it will be over-complication?
@@ -35,11 +36,7 @@ const MovieForm = ({ info, genreList, onSubmit, onClose, isOpen }) => {
         onSubmit={() => onSubmit(movieInfo)}
         onClose={onClose}
       >
-        <Box
-          sx={{
-            '& .MuiTextField-root': { m: 2, width: '50ch' },
-          }}
-        >
+        <Box className={styles.box}>
           <div>
             <TextField
               id="movie-form-title"
@@ -104,7 +101,7 @@ const MovieForm = ({ info, genreList, onSubmit, onClose, isOpen }) => {
               onChange={e => setMovieInfo(prev => ({ ...prev, runtime: e.target.value }))}
             />
           </div>
-          <FormControl sx={{ m: 2, width: '103ch' }} variant="standard">
+          <FormControl className={styles.overviewField} variant="standard">
             <InputLabel htmlFor="movie-form-overview">Overview</InputLabel>
             <Input
               id="movie-form-overview"
