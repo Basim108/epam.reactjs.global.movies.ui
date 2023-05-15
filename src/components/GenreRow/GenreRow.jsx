@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './GenreRow.module.css';
 
 const GenreRow = ({ genres }) => (
-  <div className={styles.GenreRow} data-testid="GenreRow">
+  <div className={styles.genreRow} data-testid="GenreRow">
     {genres.map((genre, i) => (
       <span key={genre}>
         {i > 0 && ', '}

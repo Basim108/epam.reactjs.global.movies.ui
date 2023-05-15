@@ -4,7 +4,6 @@ import { Grid } from '@mui/material';
 import SearchViewButton from '../SearchViewButton/SearchViewButton';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import PropTypes from 'prop-types';
-import moviesBgImg from '../../assets/img/header.png';
 
 const Header = ({ isSearchView, isMovieDetailsView, onSearchActivate }) => {
   const headerBgClaaName = isSearchView ? styles.searchViewBg : styles.detailsViewBg;
@@ -32,7 +31,6 @@ Header.defaultProps = {
   isSearchView: true,
   isMovieDetailsView: false,
 };
-
 export default Header;
 
 const testMovieDetails = {

@@ -1,9 +1,11 @@
 /* eslint-disable */
 import SortControl from './SortControl';
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import { RELEASE_DATE, TITLE } from './constant';
+import '../../assets/fonts/montserrat.css';
+import { darkTheme } from '../../constants/theme';
 
 export default {
   title: 'Movies/SortControl',
@@ -26,12 +28,6 @@ export default {
     },
   },
 };
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
 const Template = args => (
   <ThemeProvider theme={darkTheme}>

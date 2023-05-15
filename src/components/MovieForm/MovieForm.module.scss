@@ -1,0 +1,11 @@
+.box {
+  & :global(.MuiTextField-root) {
+    margin: 4px;
+    width: 50ch;
+  }
+}
+
+.overviewField {
+  margin: 4px;
+  width: 103ch;
+}

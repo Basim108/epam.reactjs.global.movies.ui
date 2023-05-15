@@ -3,6 +3,7 @@ import MovieDetails from './MovieDetails';
 import { Container, Grid } from '@mui/material';
 import headerStyles from '../Header/Header.module.css';
 import appStyles from '../../App.module.css';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/MovieDetails',

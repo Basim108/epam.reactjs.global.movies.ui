@@ -1,4 +1,5 @@
 ﻿import SearchForm from './SearchForm';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/SearchForm',

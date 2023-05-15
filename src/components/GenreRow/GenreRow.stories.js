@@ -1,5 +1,6 @@
 /* eslint-disable */
 import GenreRow from './GenreRow';
+import '../../assets/fonts/montserrat.css';
 
 export default {
   title: 'Movies/GenreRow',
