@@ -1,7 +1,6 @@
 /* eslint-disable */
 import Dialog from './Dialog';
-import appStyles from '../../App.module.css';
-import headerStyles from '../Header/Header.module.css';
+import appStyles from '../MovieListPage/MovieListPage.module.css';
 import { Container, Grid } from '@mui/material';
 import React from 'react';
 import '../../assets/fonts/montserrat.css';
@@ -47,8 +46,8 @@ export default {
 
 const Template = args => {
   return (
-    <Container className={appStyles.App} fixed>
-      <Grid xs={12} container className={headerStyles.Header} item={true}>
+    <Container className={appStyles.movieListPage} fixed>
+      <Grid xs={12} container className={appStyles.appHeader} item={true}>
         <Dialog {...args}>{args.children}</Dialog>
       </Grid>
     </Container>

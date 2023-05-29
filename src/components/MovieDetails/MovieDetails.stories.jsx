@@ -1,8 +1,7 @@
 /* eslint-disable */
 import MovieDetails from './MovieDetails';
 import { Container, Grid } from '@mui/material';
-import headerStyles from '../Header/Header.module.css';
-import appStyles from '../../App.module.css';
+import appStyles from '../MovieListPage/MovieListPage.module.css';
 import '../../assets/fonts/montserrat.css';
 
 export default {
@@ -16,8 +15,8 @@ export default {
 };
 
 const Template = args => (
-  <Container className={appStyles.app} fixed>
-    <Grid xs={12} container className={headerStyles.appHeader} item={true}>
+  <Container className={appStyles.movieListPage} fixed>
+    <Grid xs={12} container className={appStyles.appHeader} item={true}>
       <MovieDetails {...args} />
     </Grid>
   </Container>
@@ -33,8 +32,8 @@ Default.story = {
       tagline: 'The Saga Continues',
       voteAverage: 7.1,
       vote_count: 4732,
-      releaseYear: '2017',
-      imageUrl: 'https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg',
+      release_date: '2017-09-23',
+      poster_path: 'https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg',
       overview:
         'Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.',
       budget: 200000000,
@@ -55,8 +54,8 @@ LongOverview.story = {
       tagline: 'Long live the king',
       voteAverage: 7.3,
       vote_count: 3788,
-      releaseYear: '2018',
-      imageUrl: 'https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg',
+      release_date: '2018-02-1',
+      poster_path: 'https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg',
       overview:
         "King T'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country's new leader. However, T'Challa soon finds that he is challenged for the throne by factions within his own country as well as without.  Using powers reserved to Wakandan kings, T'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister,  members of the Dora Milaje (the Wakandan \"special forces\"), and an American secret agent, to prevent Wakanda from being dragged into a world war.",
       budget: 200000000,
