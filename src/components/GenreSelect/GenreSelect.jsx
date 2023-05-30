@@ -36,7 +36,7 @@ const GenreSelect = ({ activeGenre, onSelect }) => {
         }
       });
     return () => controller.abort();
-  }, []);
+  }, [activeGenre]);
   const selectGenreHandler = selectedGenre => {
     setGenreInfoList(prevList =>
       prevList.map(info => {

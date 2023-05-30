@@ -37,6 +37,7 @@ const MovieTile = ({ movie, onClick }) => {
       flexDirection={{ xs: 'column', sm: 'row' }}
       data-testid="MovieTile"
       onClick={movieClickHandler}
+      data-movie-id={movie.id}
     >
       <Grid xs={12} item>
         <div className={styles.movieMenu}>

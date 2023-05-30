@@ -19,7 +19,8 @@ const MovieListPage = () => {
   const [sortBy, setSortBy] = useState(RELEASE_DATE);
   const [search, setSearch] = useState('');
 
-  const fetchMovies = async signal => {
+  useEffect(() => {
+    const controller = new AbortController();
     const queryParams = new URLSearchParams({
       sortBy: sortBy === RELEASE_DATE ? 'release_date' : 'title',
       sortOrder: 'asc',
@@ -28,8 +29,11 @@ const MovieListPage = () => {
       queryParams.append('search', search);
       queryParams.append('searchBy', 'title');
     }
-    if (activeGenre !== 'All') queryParams.append('filter', activeGenre);
-    fetch('http://localhost:4000/movies?' + queryParams, { signal })
+    if (activeGenre !== 'All') {
+      queryParams.append('filter', activeGenre);
+    }
+
+    fetch('http://localhost:4000/movies?' + queryParams, { signal: controller.signal })
       .then(async res => {
         const movies = await res.json();
         if (!movies || typeof Number(movies.totalAmount) !== 'number' || !Array.isArray(movies.data)) {
@@ -46,11 +50,6 @@ const MovieListPage = () => {
           console.error('failed to fetch movies', queryParams, err);
         }
       });
-  };
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchMovies(controller.signal).catch(console.error);
     return () => controller.abort();
   }, [search, activeGenre, sortBy]);
 

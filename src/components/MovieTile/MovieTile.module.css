@@ -17,7 +17,7 @@ img {
   align-items: end;
   display: contents;
   color: #979797;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -50,7 +50,7 @@ img {
 
 .genres {
   color: #7a7a7a;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
