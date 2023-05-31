@@ -12,8 +12,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import SearchForm from '../SearchForm/SearchForm';
 
 const MovieListPage = () => {
-  const [movieList, setMovieList] = useState([]);
-  const [movieCount, setMovieCount] = useState(0);
+  const [moviesInfo, setMoviesInfo] = useState({ totalAmount: 0, data: [] });
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [activeGenre, setActiveGenre] = useState('All');
   const [sortBy, setSortBy] = useState(RELEASE_DATE);
@@ -36,12 +35,11 @@ const MovieListPage = () => {
     fetch('http://localhost:4000/movies?' + queryParams, { signal: controller.signal })
       .then(async res => {
         const movies = await res.json();
-        if (!movies || typeof Number(movies.totalAmount) !== 'number' || !Array.isArray(movies.data)) {
+        if (!movies || !Array.isArray(movies.data)) {
           console.error('unsupported api response', movies);
           throw new Error('unsupported api response');
         }
-        setMovieCount(movies.totalAmount);
-        setMovieList(movies.data);
+        setMoviesInfo(movies);
       })
       .catch(err => {
         if (err.name === 'AbortError') {
@@ -69,8 +67,8 @@ const MovieListPage = () => {
         <GenreSelect activeGenre={activeGenre} onSelect={genre => setActiveGenre(genre)} />
         <SortControl onChange={value => setSortBy(value)} sortBy={RELEASE_DATE} />
       </ToolBar>
-      <MovieCount count={movieCount} />
-      <MovieList movieList={movieList} onMovieClick={info => setSelectedMovie(info)} />
+      <MovieCount count={moviesInfo.totalAmount} />
+      <MovieList movieList={moviesInfo.data} onMovieClick={info => setSelectedMovie(info)} />
     </Container>
   );
 };

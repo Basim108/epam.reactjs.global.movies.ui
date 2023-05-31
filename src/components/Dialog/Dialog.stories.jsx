@@ -47,7 +47,7 @@ export default {
 const Template = args => {
   return (
     <Container className={appStyles.movieListPage} fixed>
-      <Grid xs={12} container className={appStyles.appHeader} item={true}>
+      <Grid xs={12} container className={appStyles.appHeader} item>
         <Dialog {...args}>{args.children}</Dialog>
       </Grid>
     </Container>
