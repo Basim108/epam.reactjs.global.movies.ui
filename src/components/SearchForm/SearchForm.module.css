@@ -9,7 +9,7 @@
 .title {
   color: #ffffff;
   text-transform: uppercase;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -25,7 +25,7 @@
   opacity: 0.7;
   border-radius: 4px;
 
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -39,7 +39,7 @@
   height: 57px;
   width: 233px;
 
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

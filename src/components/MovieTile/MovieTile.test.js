@@ -7,17 +7,17 @@ import userEvent from '@testing-library/user-event';
 describe('<MovieTile />', () => {
   const movie = {
     genres: ['Action', 'Adventure', 'Drama'],
-    imageUrl: '/assets/img/some.png',
+    poster_path: '/assets/img/some.png',
     title: 'Avengers',
-    releaseYear: 2004,
+    release_date: '2004-12-1',
   };
 
   beforeEach(() => {
-    render(<MovieTile {...movie} />);
+    render(<MovieTile movie={movie} />);
   });
 
   test('should render components content', () => {
-    expect(screen.getByText(movie.releaseYear)).toBeInTheDocument();
+    expect(screen.getByText('2004')).toBeInTheDocument();
     expect(screen.getByText(movie.title)).toBeInTheDocument();
 
     expect(screen.getByText('Action')).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe('<MovieTile />', () => {
 
     const image = screen.getByAltText(movie.title);
     expect(image).toBeInTheDocument();
-    expect(image.src).toEqual(`http://localhost${movie.imageUrl}`);
+    expect(image.src).toEqual(`http://localhost${movie.poster_path}`);
   });
 
   test('should render movie context menu', async () => {

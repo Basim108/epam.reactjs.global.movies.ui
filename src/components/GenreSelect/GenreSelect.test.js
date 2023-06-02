@@ -1,22 +1,36 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, render, screen, act, waitFor } from '@testing-library/react';
 import GenreSelect from './GenreSelect';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 
 describe('<GenreSelect />', () => {
-  const genreList = ['All', 'Comedy'];
+  const genreList = ['Comedy'];
   const selectHandler = jest.fn();
 
+  beforeEach(() => {
+    fetchMock.resetMocks();
+    fetchMock.mockIf(/^https?:\/\/localhost:4000.*$/, req => {
+      if (req.url.startsWith('http://localhost:4000/genres'))
+        return Promise.resolve({
+          status: 200,
+          body: JSON.stringify(genreList),
+        });
+    });
+  });
   afterEach(cleanup);
 
-  test('should render all genre passed in props', () => {
-    render(<GenreSelect activeGenre="All" genreList={genreList} onSelect={selectHandler} />);
+  test('should render all genre passed in props', async () => {
+    await act(async () => {
+      render(<GenreSelect activeGenre="All" onSelect={selectHandler} />);
+    });
     expect(screen.getByText('All')).toBeInTheDocument();
     expect(screen.getByText('Comedy')).toBeInTheDocument();
   });
 
-  test('should initially make active genre that comes in props.activeGenre', () => {
-    render(<GenreSelect activeGenre="Comedy" genreList={genreList} onSelect={selectHandler} />);
+  test('should initially make active genre that comes in props.activeGenre', async () => {
+    await act(async () => {
+      render(<GenreSelect activeGenre="Comedy" onSelect={selectHandler} />);
+    });
     const allGenre = screen.getByText('All');
     expect(allGenre).toBeInTheDocument();
     expect(allGenre.className).not.toContain('selectedGenre');
@@ -27,8 +41,9 @@ describe('<GenreSelect />', () => {
   });
 
   test('should make Comedy active and call onSelect after clicking on Comedy genre', async () => {
-    render(<GenreSelect activeGenre="All" genreList={genreList} onSelect={selectHandler} />);
-
+    await act(async () => {
+      render(<GenreSelect activeGenre="All" onSelect={selectHandler} />);
+    });
     const allGenre = screen.getByText('All');
     expect(allGenre).toBeInTheDocument();
     expect(allGenre.className).toContain('selectedGenre');

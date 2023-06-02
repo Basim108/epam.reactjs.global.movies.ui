@@ -1,0 +1,9 @@
+.movieCount {
+  font-family: Montserrat, serif;
+  font-style: normal;
+}
+
+.movieCount span {
+  font-weight: bold;
+  margin-right: 5px;
+}

@@ -1,9 +1,10 @@
 .movieTile {
-  margin: 10px;
+  margin: 10px !important;
+  cursor: pointer;
 }
 
 img {
-  width: 100%;
+  width: 280px;
 }
 
 .movieMenu {
@@ -16,7 +17,7 @@ img {
   align-items: end;
   display: contents;
   color: #979797;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -27,6 +28,7 @@ img {
   border: 1px solid #979797;
   border-radius: 4px;
   padding: 0 10px;
+  margin-right: 8px;
 }
 
 .movieMenuButton {
@@ -47,8 +49,8 @@ img {
 }
 
 .genres {
-  color: #555555;
-  font-family: Montserrat;
+  color: #7a7a7a;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

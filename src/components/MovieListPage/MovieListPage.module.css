@@ -1,14 +1,17 @@
+.movieListPage {
+  height: 1000px;
+}
+
 .appHeader {
   height: 396px;
   width: 1200px;
 }
 
 .appLogo {
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: 900;
   font-size: 20px;
-  font-weight: bold;
 
   color: #f65261;
   margin-left: 40px;

@@ -1,17 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './GenreSelect.module.css';
 import { Grid } from '@mui/material';
 
-const GenreSelect = ({ activeGenre, genreList, onSelect }) => {
+const GenreSelect = ({ activeGenre, onSelect }) => {
   const buildClasses = (title, active) => styles.genre + (title === active ? ' ' + styles.selectedGenre : '');
-
   const [genreInfoList, setGenreInfoList] = useState(
-    genreList.map(title => ({
+    ['All'].map(title => ({
       title,
       className: buildClasses(title, activeGenre),
     })),
   );
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch('http://localhost:4000/genres', { signal: controller.signal })
+      .then(async res => {
+        const genreList = await res.json();
+        // todo: get genres from api with statistic, show 5 most popular genres and other is dropdown menu
+        // for now it is enough to show only 5 first genres
+        const list = ['All', ...genreList.filter((_, idx) => idx <= 5)];
+        setGenreInfoList(
+          list
+            .filter((_, idx) => idx <= 5)
+            .map(title => ({
+              title,
+              className: buildClasses(title, activeGenre),
+            })),
+        );
+      })
+      .catch(err => {
+        if (err.name === 'AbortError') {
+          console.log('successfully aborted fetching genres');
+        } else {
+          console.error('failed to fetch genres', err);
+        }
+      });
+    return () => controller.abort();
+  }, [activeGenre]);
   const selectGenreHandler = selectedGenre => {
     setGenreInfoList(prevList =>
       prevList.map(info => {
@@ -35,7 +60,6 @@ const GenreSelect = ({ activeGenre, genreList, onSelect }) => {
 };
 
 GenreSelect.propTypes = {
-  genreList: PropTypes.arrayOf(PropTypes.string).isRequired,
   activeGenre: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
 };
