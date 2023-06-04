@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 const MovieCount = ({ count }) => (
   <Grid xs={12} mt={1} item className={styles.movieCount} data-testid="MovieCount">
-    <span>{count}</span> movies found
+    <span className={styles.countNumber}>{count}</span> movies found
   </Grid>
 );
 
